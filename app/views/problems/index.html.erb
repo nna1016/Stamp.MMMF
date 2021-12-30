@@ -1,0 +1,22 @@
+<h3>問題一覧</h3>
+<div class="scaf_table">
+<table>
+  <thead>
+    <tr>
+      <th>問題文</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @problems.each do |problem| %>
+      <tr>
+        <td><%= link_to problem.problem_statement, problem %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<div class="scaf_button">
+  <%= link_to '問題の新規作成', new_problem_path %>
+</div>

@@ -1,0 +1,14 @@
+<div class="friend">
+    <h4>友達の学籍番号を入力して<br>5ポイントGET！</h4>
+    <%= image_tag "/images/akusyu.png", alt: "握手", size: "150x150" %><br>
+    <% if current_user.role_flag != "1" %>
+        <p class="sub">入力出来ません</p>
+    <% elsif @flag %>
+        <%= form_with url: friend_find_path do |form| %>
+            <%= form.text_field :student_no, required: true, class: "friend-btn", maxlength: 9, autofocus: true, pattern: "[Kk]+[0-9]{3}[a-zA-Z]{1}[0-9]{4}", placeholder: "友達の学籍番号" %><br>
+            <%= form.submit "GET", class: "sub" %>
+        <% end %>
+    <% else %>
+        <p class="sub">入力済みです</p>
+    <% end %>
+</div>

@@ -1,0 +1,24 @@
+<div class="Page-Area">
+<div class="Select-Area">
+    <div class="Page-Title">
+    <% if @flag %>
+      10ポイント付与しました！
+    <% else %>
+      <% if @user.role_flag != "1" %>
+        付与できません
+      <% else %>
+        既に付与されています！
+      <% end %>
+    <% end%>
+    </div>
+    <% if @user.role_flag == "1" %>
+      <p>使用済みのコードは使用できません<br>
+      また、期間内に1人1回のみとなります</p>
+    <% end %>
+    <p>現在のポイント：<%= @user.point %>
+    <% if  @user.role_flag != "1" %>
+    <p>Actや教員以外でこの画面が表示された場合はこちらにご連絡ください</p>
+    <p>TEL：070-8302-1879（Act代表）</p>
+    <% end %>
+    </div>
+</div>

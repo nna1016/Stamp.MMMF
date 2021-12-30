@@ -1,0 +1,31 @@
+<h3>配布ポイント管理画面</h3>
+<div class="scaf_button">
+<nobr>
+<%= link_to 'QR一覧', homes_qr_list_path %> | 
+<%= link_to '新規作成', new_distribution_path %>
+</nobr>
+</div>
+<div class="scaf_table">
+<table>
+  <thead>
+    <tr>
+      <th>コード<br>(未使用:<%= @unused %>個、使用済み:<%= @used %>、計:<%= @cnt %>個)</th>
+      <th>学籍番号(未使用の場合は0)</th>
+      <th>QRコードにするリンク</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% i = 1%>
+    <% @distributions.each do |distribution| %>
+      <tr>
+        <td><%= distribution.id %></td>
+        <td><%= distribution.student_no %></td>
+        <td><%= link_to 'ここをクリック', '/distributions/' + distribution.id %></td>
+        <td><%= link_to '削除', distribution, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+      </tr>
+      <% i += 1%>
+    <% end %>
+  </tbody>
+</table>
+</div>

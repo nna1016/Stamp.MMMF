@@ -1,0 +1,2 @@
+class AnsweredUser < ApplicationRecord
+end

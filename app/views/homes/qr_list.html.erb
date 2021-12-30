@@ -1,0 +1,18 @@
+<div class="qr-list">
+<table border="1" style="table-layout:fixed;">
+  <tbody>
+  <% i = 1%>
+    <% @distributions.each do |distribution| %>
+    <% if (i - 1) % 4 == 0%>
+    <tr style="border-bottom: solid 1px">
+    <% end %>
+        <% @qr = ::RQRCode::QRCode.new(@url + distribution.id ) %>
+        <td><span class="qr-title">Web参加型企画応募用</span><br><br><span class="qr-txt">このQRコードを読み取って<br>ポイントをGETしよう！<br>詳しくはポスターを<br>ご覧ください！</span><br><%= image_tag ChunkyPNG::Image.from_datastream(@qr.as_png.to_datastream).resize(150, 150).to_data_url %><br><span class="qr-no"><%= format("%06d", i) %></span></td>
+      <% i += 1%>
+    <% end %>
+    <% if i % 4 == 0 %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

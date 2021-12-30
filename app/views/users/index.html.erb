@@ -1,0 +1,11 @@
+
+<h3>ユーザー一覧</h3>
+<h4>Act</h4>
+<%= render 'index_table', users: @act_users %>
+
+<h4>一般ユーザー(認証済み)</h4>
+<%= render 'index_table', users: @ok_users %>
+
+<h4>一般ユーザー(未認証)</h4>
+<%= render 'index_table', users: @not_users %>
+

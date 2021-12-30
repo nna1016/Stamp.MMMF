@@ -1,0 +1,24 @@
+<div class="Page-Area">
+    <div class="Page-Title">
+    <%= @quetion.place %>
+    <div class="Title-Line"></div>
+    </div>
+    <div class="Text-Area">
+    <%= @quetion.problem_statement %>
+    </div>
+    <div class="Select-Area">
+        <div class="Select-botun">
+        <a href="/quests/<%= @quetion.id %>/success/<%= @quetion.select_1 %>"><%= @quetion.select_1 %></a>
+        </div>
+        <div class="Select-botun">
+        <a href="/quests/<%= @quetion.id %>/success/<%= @quetion.select_2 %>"><%= @quetion.select_2 %></a>
+        </div>
+        <div class="Select-botun">
+        <a href="/quests/<%= @quetion.id %>/success/<%= @quetion.select_3 %>"><%= @quetion.select_3 %></a>
+        </div>
+        <div class="Select-botun">
+        <a href="/quests/<%= @quetion.id %>/success/<%= @quetion.select_4 %>"><%= @quetion.select_4 %></a>
+        </div>
+    </div>
+    <div style="padding-bottom:10vh;"></div>
+</div>

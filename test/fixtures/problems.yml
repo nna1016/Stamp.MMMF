@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  problem_statement: MyString
+  select_1: MyString
+  select_2: MyString
+  select_3: MyString
+  select_4: MyString
+  answer: MyString
+  point: 
+  place: MyString
+  problem_code: MyString
+
+two:
+  problem_statement: MyString
+  select_1: MyString
+  select_2: MyString
+  select_3: MyString
+  select_4: MyString
+  answer: MyString
+  point: 
+  place: MyString
+  problem_code: MyString

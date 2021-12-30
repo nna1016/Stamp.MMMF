@@ -1,0 +1,69 @@
+<% if @prize != nil %>
+<div class="congrats">
+    <p class="congrats_title">当選のお知らせ</p>
+    <p>この度はMMMFにご参加いただき<br>誠にありがとうございます！<br>
+    抽選の結果、<span class="prize_name"><%= @prize.prize %></span>に当選しました！<br>
+    会場で景品を受け取っていない方は<br>以下にお問い合わせください。<br>
+    
+    <p>TEL(Act代表)：<a href="tel:070-8302-1879">070-8302-1879</a><br>
+    MAIL：<a href="mailto:info@act-neec.org">info@act-neec.org</a><br>
+    役員本部室：1号館クラブハウス棟10207教室<br>
+</div>
+<% end %>
+<div style="text-align: center">
+<%= link_to image_tag('/images/act.png', class: "banner"), "https://www.act-neec.org/about.html" %>
+</div>
+<div style="text-align: center">
+<%= link_to image_tag('/images/announce.png', class: "banner"), "/helps/announce" %>
+</div>
+<!----------------------
+   Our profile cards
+------------------------>
+<div class="cards-container">
+    <div class="card card-one">
+        <header>
+            <div class="avatar">
+            <img src="https://pbs.twimg.com/profile_images/1022063592441446400/_truTOvX_400x400.jpg" alt="かまとぅ" />
+            </div>
+        </header>
+
+        <h3><%= current_user.name %></h3>
+        <div class="desc">
+            <%= current_user.student_no %>
+        </div>
+
+        <footer>
+        保有ポイント：<%= current_user.point %>pt<br>
+        <%= "#{(current_user.point / 5).to_s.tr('0-9', '０-９')}口分応募中" if current_user.point / 5 > 0%>
+        </footer>
+    </div>
+</div>
+<div style="text-align: center">
+<%= link_to image_tag('/images/tyuusen-02.png', class: "banner"), "/homes/tyusen" %>
+</div>
+<div class="Page-Area">
+    <table>
+    <tr>
+        <th>順位(<%= @all_ranks.count%>人中)</th>
+        <th>プレイヤーネーム</th>
+        <th>ポイント</th>
+    </tr>
+    <% flag, num, i, bef_pt = true, 1, 0, -1 %>
+    <% @all_ranks.each do |list| %>
+    <tr>
+        <% if bef_pt != list.point %>
+            <td><%= i += 1 %></td>
+            <% flag = true %>
+        <% else %>
+            <% num = i if flag %>
+            <td><%= num %></td>
+            <% flag, i = false, i + 1 %>
+        <% end %>
+        <% bef_pt = list.point%>
+        <td class="icon user"><%= list.name %></td>
+        <td><%= list.point %></td>
+    </tr>
+    <% end %>
+    </table>
+</div>
+<%= render 'layouts/howto' %>

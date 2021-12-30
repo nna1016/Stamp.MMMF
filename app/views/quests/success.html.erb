@@ -1,0 +1,49 @@
+<div class="Page-Area">
+<% if @ans_flag %>
+    <div class="Select-Area">
+        <div class="Page-Title">
+        正解！
+        <div class="Title-Line"></div>
+        </div>
+        <div class="circle-maru"></div>
+        <div class="Page-Title">
+        答え：<%= @quetion.answer %>
+        </div>
+        <div class="Page-SubTitle">
+        <%= "解説(補足):" + @quetion.commentary %><br><br>
+        <% if  @user.role_flag == "1" %>
+            <% if @flag %>
+                <p><%= @quetion.point %>ポイント獲得！</p>
+            <% else %>
+                <p>ポイントは獲得済みです</p>
+            <% end %>
+            <p>現在のポイント：<%= @user.point %>pt
+        </div>
+        <% else %>
+            <br><p>ポイントが付与できません</p>
+            <p>Actや教員以外でポイントが<br>付与されなかった場合は<br>こちらにご連絡ください</p>
+            <p>TEL(Act代表)：<a href="tel:070-8302-1879">070-8302-1879</a><br>
+      MAIL：<a href="mailto:info@act-neec.org">info@act-neec.org</a></p>
+        <% end %>
+        <%= link_to "ホームに戻る", :root, class: "btn btn-primary" %>
+        </div>
+    </div>
+
+    <% else %>
+        <div class="Select-Area">
+            <div class="Page-Title">
+            不正解！
+            <div class="Title-Line"></div>
+            </div>
+            <div class="batu">×</div>
+            <div class="Page-SubTitle">
+            あなたの回答：<%= @ans %><br>
+            ヒント：<%= @quetion.hint %>
+            </div><br>
+            <div class="Page-SubTitle">
+            <a href="javascript:history.back()" class="btn btn-primary ">もう一度挑戦！！</a>
+            </div>
+        </div>
+    <% end %>
+    <div style="padding-bottom:30vh;"></div>
+</div>

@@ -1,0 +1,63 @@
+<%= form_with(model: problem) do |form| %>
+  <% if problem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(problem.errors.count, "error") %> 保存できませんでした</h2>
+
+      <ul>
+        <% problem.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+<table class="scaf_table">
+  <!-- 出題コード用(編集時は非表示) -->
+  <% if !request.fullpath.include?('edit') %>
+    <%= form.text_field :id, value: SecureRandom.alphanumeric(16),  style: "display:none" %>
+  <% end %>
+  <tr>
+    <th>問題文</th><td><%= form.text_area :problem_statement, class: "form-control", required: true, autofocus: true  %></td>
+  </tr>
+    
+    <tr>
+    <th>選択肢1</th><td><%= form.text_field :select_1, class: "form-control", required: true %></td>
+  </tr>
+
+  <tr>
+    <th>選択肢2</th><td><%= form.text_field :select_2, class: "form-control", required: true %></td>
+  </tr>
+  
+  <tr>
+    <th>選択肢3</th><td><%= form.text_field :select_3, class: "form-control", required: true %></td>
+  </tr>  
+
+  <tr>
+    <th>選択肢4</th><td><%= form.text_field :select_4, class: "form-control", required: true %></td>
+  </tr>  
+
+  <tr>
+    <th>ヒント</th><td><%= form.text_field :hint, class: "form-control", required: true %></td>
+  </tr>  
+
+  <tr>
+    <th>答え</th><td><%= form.text_field :answer, class: "form-control", required: true %></td>
+  </tr>  
+
+  <tr>
+    <th>解説(補足)</th><td><%= form.text_field :commentary, class: "form-control", required: true %></td>
+  </tr>  
+
+  <tr>
+    <th>獲得ポイント</th><td><%= form.number_field :point, class: "form-control", required: true %></td>
+  </tr>  
+
+  <tr>
+    <th>出題場所</th><td><%= form.text_field :place, class: "form-control", required: true %></td>
+  </tr>  
+  </table>
+    <div style="text-align:center;">
+      <%= form.submit %>
+    </div>
+<% end %>
+
