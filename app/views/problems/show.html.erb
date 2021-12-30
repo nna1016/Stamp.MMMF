@@ -1,0 +1,56 @@
+<h3>問題の詳細</h3>
+<div class="scaf_button" >
+  <a href="/quests/<%= @problem.id %>/quest" style="size: 20%;">問題ぺージ</a> | <nobr>
+  <%= link_to '編集', edit_problem_path(@problem) %> | <nobr>
+  <%= link_to '戻る', problems_path %>
+</nobr>
+</div>
+<div class="scaf_table">
+<table>
+  <tr>
+    <th>問題文</th><td><%= @problem.problem_statement %></td>
+  </tr>
+
+  <tr>
+    <th>選択肢1</th><td><%= @problem.select_1 %></td>
+  </tr>
+
+  <tr>
+    <th>選択肢2</th><td><%= @problem.select_2 %></td>
+  </tr>
+  
+  <tr>
+    <th>選択肢3</th><td><%= @problem.select_3 %></td>
+  </tr>  
+
+  <tr>
+    <th>選択肢4</th><td><%= @problem.select_4 %></td>
+  </tr>  
+
+  <tr>
+    <th>ヒント</th><td><%= @problem.hint %></td>
+  </tr>  
+
+  <tr>
+    <th>答え</th><td><%= @problem.answer %></td>
+  </tr>  
+
+  <tr>
+    <th>解説(補足)</th><td><%= @problem.commentary %></td>
+  </tr>  
+
+  <tr>
+    <th>獲得ポイント</th><td><%= @problem.point %></td>
+  </tr>  
+
+  <tr>
+    <th>出題場所</th><td><%= @problem.place %></td>
+  </tr>  
+
+</table>
+</div>
+
+<div class="scaf_button">
+<%= link_to '問題の削除', @problem, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+</div>
+

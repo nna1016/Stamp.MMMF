@@ -1,0 +1,28 @@
+<%= form_with(model: prize) do |form| %>
+  <% if prize.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prize.errors.count, "error") %> 保存できませんでした:</h2>
+
+      <ul>
+        <% prize.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="scaf_table">
+  <%= form.text_field :reg_user, value: current_user.student_no, class: "form-control", required: true,  style: "display:none" %>
+  <tr>
+    <th>学籍番号</th><td><%= form.text_field :student_no, class: "form-control", required: true, autofocus: true %></td>
+  </tr>
+    
+  <tr>
+    <th>景品名</th><td><%= form.text_field :prize, class: "form-control", required: true %></td>
+  </tr>
+</table>
+  <div style="text-align:center;">
+    <%= form.submit %>
+  </div>
+<% end %>
+

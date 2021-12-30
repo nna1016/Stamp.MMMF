@@ -1,0 +1,20 @@
+<div class="qr-list">
+<table border="1" style="table-layout:fixed;">
+  <tbody>
+  <% i = 0 %>
+  <tr style="border-bottom: solid 1px;">
+    <% @users.each do |user| %>
+      <% cnt = user.point / 5 %>
+      <% cnt.times do %>
+      <% i += 1%>
+        <td class="qr-title" style="padding:6vh;font-size:2em"><%= user.student_no %></td>
+        <% if i % 3 == 0 %>
+          </tr><tr style="border-bottom: solid 1px">
+        <% end %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+
