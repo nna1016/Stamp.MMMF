@@ -7,13 +7,8 @@
     ぜひ、Web参加型企画にご参加ください！</p>
 </div>
 <% end %>
-<div style="text-align: center">
-    <%= link_to image_tag('/images/tyuusen-02.png', class: "banner"), "/homes/tyusen" %>
-</div>
 <% if !@login %>
     <div class="join">
         <%= link_to image_tag('/images/join.png'), new_user_registration_path %>
     </div>
 <% end %>
-<%= render 'layouts/howto' %>
-<%= render 'layouts/prizelist' %>
