@@ -1,2 +1,0 @@
-class AnsweredUser < ApplicationRecord
-end
