@@ -1,29 +1,48 @@
-<header>
-  <nav class="navbar navbar-expand navbar-light">
-    <%= link_to image_tag('/images/mmmf.png', size: "70x35", class: 'navbar-brand'), root_path %>
-    <div id="Navber">
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <% if User.find(current_user.id).role_flag.to_i >= 2 %>
-          <li class="nav-item active">
-            <%= link_to '管理画面', setting_path, class: 'nav-link' %>
-          </li>
+<header class="header">
+    <div class="headerNavOuter">
+        <h1 class="siteIcon">
+          <%= link_to image_tag('/images/mmmf.png',  class: 'navbar-brand'), root_path %>
+        </h1>
+    
+        <nav class="headerNav">
+          <% if user_signed_in? %>
+            <ul class="navList">
+              <% if User.find(current_user.id).role_flag.to_i >= 2 %>
+                <li class="navItem">
+                  <%= link_to '管理画面', setting_path, class: 'nav-link' %>
+                </li>
+              <% end %>
+              <li class="navItem">
+                  <%= link_to '企画詳細', info_path, class: 'nav-link' %>
+              </li>
+            </ul>
+            <ul class="navList">
+              <li class="navItem-logout">
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              </li>
+            </ul>
+          <% else %>
+            <ul class="navList">
+              <li class="navItem">
+                  <%= link_to '企画詳細', info_path, class: 'nav-link' %>
+              </li>
+              <li class="navItem">
+                  <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
+              </li>
+              <li class="navItem">
+                  <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+              </li>
+            </ul>
           <% end %>
-          <li class="nav-item active">
-            <%= link_to '企画詳細', info_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          </li>
-      <% else %>
-          <li class="nav-item active">
-            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
-          </li>
-        <% end %>
-      </ul>
+        </nav>
+    
+        <div class="hamburger_btn" id="js-hamburger">
+            <span class="hamburger_line hamburger_line_1"></span>
+            <span class="hamburger_line hamburger_line_2"></span>
+            <span class="hamburger_line hamburger_line_3"></span>
+        </div>
+
+        <div class="black-bg" id="js-black-bg"></div>
     </div>
-  </nav>
 </header>
+<div class="sectionWrapper"></div>

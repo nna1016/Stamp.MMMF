@@ -51,6 +51,7 @@ ja:
       send_paranoid_instructions: 'アカウントが見つかった場合、アカウントの凍結解除方法を数分以内にメールでご連絡します。'
       unlocked: 'アカウントを凍結解除しました。'
     shared:
+      minimum_password_length: "（%{count}文字以上）"
       links:
         back: "戻る"
         didn_t_receive_confirmation_instructions: "確認メールが届かない方"
@@ -59,6 +60,7 @@ ja:
         sign_in: "ログイン"
         sign_in_with_provider: "%{provider}でログイン"
         sign_up: "これから参加する方"
+        
         
     confirmations:
       new:
