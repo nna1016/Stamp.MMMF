@@ -5,31 +5,35 @@
         </h1>
     
         <nav class="headerNav">
+          <% if user_signed_in? %>
             <ul class="navList">
-              <% if user_signed_in? %>
-                <% if User.find(current_user.id).role_flag.to_i >= 2 %>
-                  <li class="navItem">
-                    <%= link_to '管理画面', setting_path, class: 'nav-link' %>
-                  </li>
-                <% end %>
+              <% if User.find(current_user.id).role_flag.to_i >= 2 %>
                 <li class="navItem">
-                    <%= link_to '企画詳細', info_path, class: 'nav-link' %>
-                </li>
-                <li class="navItem">
-                    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-                </li>
-              <% else %>
-                <li class="navItem">
-                    <%= link_to '企画詳細', info_path, class: 'nav-link' %>
-                </li>
-                <li class="navItem">
-                    <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
-                </li>
-                <li class="navItem">
-                    <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+                  <%= link_to '管理画面', setting_path, class: 'nav-link' %>
                 </li>
               <% end %>
+              <li class="navItem">
+                  <%= link_to '企画詳細', info_path, class: 'nav-link' %>
+              </li>
             </ul>
+            <ul class="navList">
+              <li class="navItem-logout">
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              </li>
+            </ul>
+          <% else %>
+            <ul class="navList">
+              <li class="navItem">
+                  <%= link_to '企画詳細', info_path, class: 'nav-link' %>
+              </li>
+              <li class="navItem">
+                  <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
+              </li>
+              <li class="navItem">
+                  <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+              </li>
+            </ul>
+          <% end %>
         </nav>
     
         <div class="hamburger_btn" id="js-hamburger">
@@ -41,3 +45,4 @@
         <div class="black-bg" id="js-black-bg"></div>
     </div>
 </header>
+<div class="sectionWrapper"></div>
