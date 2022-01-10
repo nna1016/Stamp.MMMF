@@ -228,12 +228,7 @@ table{
 
 table tr{
 border-bottom: solid 1px #eee;
-cursor: pointer;
-transition: 0.3s;
-}
 
-table tr:hover{
-background-color: #d4f0fd;
 transition: 0.3s;
 }
 
@@ -243,16 +238,7 @@ width: 25%;
 padding: 15px 0;
 }
 
-table td.icon{
-background-size: 35px;
-background-position: left 5px center;
-background-repeat: no-repeat;
-padding-left: 30px;
-}
 
-table td.icon.user{
-background-image: url(https://pbs.twimg.com/profile_images/1022063592441446400/_truTOvX_400x400.jpg)
-}
 .Page-Areas{
 	margin: auto;
 	margin-top: 5%;
@@ -355,4 +341,63 @@ background-image: url(https://pbs.twimg.com/profile_images/1022063592441446400/_
 }
 .qr-txt {
   text-align: center;
+}
+
+
+
+
+
+#visit-stamp {
+  padding-bottom: 10%;
+}
+
+@media only screen and (min-width: 800px) {
+  .banner {
+    width: 50%;
+    margin: 1vh 0;
+    height: auto;
+  }
+  #visit-stamp table {
+    width: 40%;
+    max-width: 40%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
+  }
+  #visit-stamp td {
+    padding: 15%;
+  }
+}
+@media only screen and (max-width: 799.9px) {
+  .banner {
+    width: 80%;
+    margin: 1vh 0;
+    height: auto;
+  }
+  #visit-stamp table {
+    width: 70%;
+    max-width: 70%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
+  }
+  #visit-stamp td {
+    padding: 15%;
+  }
+}
+    
+
+
+
+#visit-stamp {
+	/* スタンプが横にはみ出ないように */
+	overflow: hidden;
+}
+#visit-stamp th, #visit-stamp td {
+	text-align: center;
+	border: 1px solid #fc0;
+}
+#visit-stamp th {
+	background: #ff9;
+	color: #c00;
 }

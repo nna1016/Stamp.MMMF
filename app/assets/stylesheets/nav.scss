@@ -1,5 +1,6 @@
 .header {
     width: 100%;
+    position: fixed;
     left: 0;
     top: 0;
     height: 60px;
@@ -18,20 +19,20 @@
 }
 .siteIcon img {
     width: 80px;
-    height: 40px
+    height: 40px;
+}
+
+.sectionWrapper {
+    padding: 50px 0;
 }
 
 .headerNav {
     position: fixed;
-    @media screen and (min-width: 800px) { 
-        right: -30%;
-        width: 30%;
+    @media screen and (min-width: 600px) { 
+        right: -23rem;
+        width: 23rem;
     }
-    @media screen and (max-width: 799px) { 
-        right: -50%;
-        width: 50%;
-    }
-    @media screen and (max-width: 500px) { 
+    @media screen and (max-width: 599.9px) { 
         right: -100%;
         width: 100%;
     }
@@ -46,13 +47,14 @@
 }
 .navList {
     margin: 0;
-    padding: 0;
+    padding-top: 3rem;
     text-align: center;
     display: block;
 }
 .navItem {
     padding: 0 1rem;
 }
+
 .navItem a {
     display: block;
     border-bottom: 1px solid #eee;
@@ -70,11 +72,36 @@
     width: 100%;
     margin: 0 auto;
     transition: 0.3s;
-    
+}
+
+.navItem-logout {
+    padding: 0 1rem 1rem 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.navItem-logout a {
+    display: block;
+    color: black;
+    padding: 1rem;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 3rem;
+}
+.navItem-logout a:hover {
+    display: block;
+    color: black;
+    border-radius: 3rem;
+    background-color: rgb(245, 150, 150);
+    padding: 1rem;
+    width: 100%;
+    margin: 0 auto;
+    transition: 0.3s;
 }
 
 .hamburger_btn {
-    position: absolute;//絶対配置
+    position: absolute;/*.headerNavOuterを基準にして、絶対配置*/
     right: 0;
     top: 0;
     width: 55px;
@@ -83,13 +110,13 @@
     z-index: 30;
 }
 .hamburger_line {
-    position: absolute;//絶対配置
+    position: absolute;/*.headerNavOuterを基準にして、絶対配置*/
     left: 8px;
     width: 25px;
     height: 1px;
     background-color: #111;
-    -webkit-transition: all .3s;
-    transition: all .3s;
+    -webkit-transition: all .6s;
+    transition: all .6s;
 }
 .hamburger_line_1 {
     top: 20px;
