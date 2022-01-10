@@ -14,10 +14,6 @@ Rails.application.routes.draw do
   end
   resources :users
   get 'homes/index'
-  get 'homes/prizelist'
-  get 'homes/qr_list'
-  get 'homes/lottery_student_list'
-  get 'homes/tyusen'
 
   get 'setting' => 'homes#setting'
 
@@ -26,5 +22,9 @@ Rails.application.routes.draw do
   get 'mmmf_terms' => "helps#mmmf_terms"
   get 'support' => "helps#support"
   get 'helps/announce' => "helps#announce"
+
+  get '*path', controller: 'application', action: 'render_404'
+  post '*not_found', controller: 'application', action: 'routing_error'
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
