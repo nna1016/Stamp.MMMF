@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  resources :stamps
   resources :site_infos
   get 'users/index'
   get 'users/show'

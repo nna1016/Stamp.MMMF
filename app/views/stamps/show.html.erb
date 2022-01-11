@@ -1,0 +1,22 @@
+<div class="scaf_table">
+<h3>スタンプの詳細</h3>
+<div class="scaf_button" >
+  <%= link_to '編集', edit_stamp_path(@stamp) %>  |  <%= link_to '一覧に戻る', stamps_path %></td>
+</div>
+<table>
+  <tr>
+    <th>名前</th><td width="auto"><%= @stamp.name %></td>
+  </tr>
+  <tr>
+    <th>識別ID</th><td><%= @stamp.stamp_id %></td>
+  </tr>
+    <tr>
+    <th>画像</th><td><%= image_tag @stamp.image.url, size: 100 %></td>
+  </tr>
+</table>
+</div>
+<div class="scaf_button" >
+  <td><%= link_to '削除', @stamp, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+</div>
+
+
