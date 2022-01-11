@@ -64,6 +64,6 @@ class StampsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def stamp_params
-      params.require(:stamp).permit(:name, :stamp_id, :image)
+      params.require(:stamp).permit(:number, :stamp_id, :image)
     end
 end

@@ -6,7 +6,8 @@
 <table>
   <thead>
     <tr>
-      <th>名前</th>
+      <th>ID</th>
+      <th>表示ID</th>
       <th>識別ID</th>
       <th>画像</th>
     </tr>
@@ -16,6 +17,7 @@
     <% @stamps.each do |stamp| %>
       <tr>
         <td><%= link_to format("%06d", stamp.id), stamp %></td>
+        <td><%= stamp.number %></td>
         <td><%= stamp.stamp_id %></td>
         <td><%= image_tag stamp.image.url, size: "100" %></td>
       </tr>

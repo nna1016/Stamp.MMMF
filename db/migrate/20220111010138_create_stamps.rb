@@ -1,7 +1,7 @@
 class CreateStamps < ActiveRecord::Migration[6.1]
   def change
     create_table :stamps do |t|
-      t.string :name
+      t.integer :number
       t.string :stamp_id
       t.string :image
 
