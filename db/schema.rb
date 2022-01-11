@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_11_010138) do
+ActiveRecord::Schema.define(version: 2022_01_11_040413) do
+
+  create_table "get_stamps", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "student_no"
+    t.integer "number"
+    t.string "stamp_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "prizes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "student_no"
@@ -30,7 +38,7 @@ ActiveRecord::Schema.define(version: 2022_01_11_010138) do
   end
 
   create_table "stamps", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
+    t.integer "number"
     t.string "stamp_id"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
