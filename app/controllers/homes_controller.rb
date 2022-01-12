@@ -3,7 +3,8 @@ class HomesController < ApplicationController
   before_action :access_log
   
   def index
-    @all_ranks = User.where(role_flag: 1).where.not(confirmed_at: nil).order(point: "DESC") ## ポイントの降順
+    @get_stamp = GetStamp.where(student_no: current_user.student_no)
+    @stamp = Stamp.all
     @prize = Prize.find_by(student_no: current_user.student_no)
   end
   
