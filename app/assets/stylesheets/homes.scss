@@ -364,9 +364,7 @@ padding: 15px 0;
     border-collapse: collapse;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
   }
-  #visit-stamp td {
-    padding: 15%;
-  }
+
 }
 @media only screen and (max-width: 799.9px) {
   .banner {
@@ -377,15 +375,20 @@ padding: 15px 0;
   #visit-stamp table {
     width: 70%;
     max-width: 70%;
+    table-layout: fixed;
     margin: 20px auto;
     border-collapse: collapse;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
   }
-  #visit-stamp td {
-    padding: 15%;
-  }
+
 }
     
+#visit-stamp td {
+  .stamp_img {
+    width: 80%;
+    object-fit: cover;
+  }
+}
 
 
 
