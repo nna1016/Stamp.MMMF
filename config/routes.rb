@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   get 'mmmf_terms' => "helps#mmmf_terms"
   get 'support' => "helps#support"
+  get 'contact' => "helps#contact"
   get 'helps/announce' => "helps#announce"
 
   get '*path', controller: 'application', action: 'render_404'
