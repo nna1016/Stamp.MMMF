@@ -1,13 +1,71 @@
-// Place all the styles related to the helps controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-.support {
-    text-align: center;
+.support-board {
+	width: 70%;
+	margin: 0 auto;
+	background-color: white;
+	height: auto;
 }
 
-.support h1 {
-    padding-bottom: 1%;
+.support-board p {
+	text-align: center;
+	padding-top: 1rem;
+	margin-bottom: -1rem;
+	font-size: 1.5em;
 }
-.WordSection1 h1,h2 {
-    text-align: center;
+.support *, .support *:after, .support *:before {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.support {
+	overflow-x: hidden;
+	margin: 0 auto;
+	color: #333333;
+}
+.support .actab {
+	padding: 20px 0;
+	border-bottom: 1px dotted #cccccc;
+}
+.support label {
+	font-size: 1.2em;
+	position: relative;
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 10px 10px 0 48px;
+	cursor: pointer;
+}
+.support .actab-content {
+	font-size: 1em;
+	position: relative;
+	overflow: hidden;
+	height: 0;
+	margin: 0 40px;
+	padding: 0 14px;
+	-webkit-transition: 0.4s ease;
+	        transition: 0.4s ease;
+	opacity: 0;
+}
+.support .actab input[type=checkbox]:checked ~ .actab-content {
+	height: auto;
+	padding: 14px;
+	opacity: 1;
+}
+.support .plus {
+	font-size: 2.4em;
+	line-height: 100%;
+	position: absolute;
+	z-index: 5;
+	margin: 3px 0 0 10px;
+	-webkit-transition: 0.2s ease;
+	        transition: 0.2s ease;
+}
+.support .actab input[type=checkbox]:checked ~ .plus {
+	-webkit-transform: rotate(45deg);
+	        transform: rotate(45deg);
+}
+.support .actab input[type=checkbox] {
+  display: none;
+}
+
+.push {
+	padding: 10px;
 }
