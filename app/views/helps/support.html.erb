@@ -1,25 +1,30 @@
 
 
-<div class="support-board">
-<p>ログイン</p>
-	<div class="support">
-		<div class="actab">
-			<input id="tabfour021" type="checkbox" name="tabs">
+
+<% @supports.each_with_index do |support, i| %>
+	
+	<% if @bef != support.kind %>
+		<% if @bef != "" %>
+			</div></div><div class="push"></div>				
+		<% end %>
+		<% @bef = support.kind %>
+		<div class="support-board">
+			<p><%= support.kind %></p>
+			<div class="support">
+			<div class="actab">
+			<input id=<%= tabfour(i) %> type="checkbox" name="tabs">
 			<div class="plus">+</div>
-			<label for="tabfour021">質問テキスト</label>
-			<div class="actab-content">答えテキスト</div>
+			<label for=<%= tabfour(i) %>><%= support.question %></label>
+			<div class="actab-content"><%= support.answer %></div>
 		</div>
+	<% elsif @bef == support.kind %>
 		<div class="actab">
-			<input id="tabfour022" type="checkbox" name="tabs">
+			<input id=<%= tabfour(i) %> type="checkbox" name="tabs">
 			<div class="plus">+</div>
-			<label for="tabfour022">質問テキスト 質問テキスト</label>
-			<div class="actab-content">答えテキスト</div>
+			<label for=<%= tabfour(i) %>><%= support.question %></label>
+			<div class="actab-content"><%= support.answer %></div>
 		</div>
-		<div class="actab">
-			<input id="tabfour023" type="checkbox" name="tabs">
-			<div class="plus">+</div>
-			<label for="tabfour023">質問テキスト 質問テキスト</label>
-			<div class="actab-content">答えテキスト</div>
-		</div>
-	</div>
+	<% end %>
+<% end %>
+</div>
 </div>
