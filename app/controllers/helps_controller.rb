@@ -5,6 +5,8 @@ class HelpsController < ApplicationController
   end
 
   def support
+    @supports = Support.all.order(:kind, :order)
+    @bef = ""
   end
 
   def announce

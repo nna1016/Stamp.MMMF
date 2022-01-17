@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  
+  resources :supports
   resources :stamps
   resources :site_infos
   get 'users/index'
@@ -21,8 +21,10 @@ Rails.application.routes.draw do
   get 'info' => 'homes#info'
 
   get 'mmmf_terms' => "helps#mmmf_terms"
-  get 'support' => "helps#support"
+  
+  get 'contact' => "helps#contact"
   get 'helps/announce' => "helps#announce"
+  get "helps/support"
 
   get '*path', controller: 'application', action: 'render_404'
   post '*not_found', controller: 'application', action: 'routing_error'

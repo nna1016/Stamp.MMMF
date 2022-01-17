@@ -39,7 +39,8 @@
     top: 0;
     height: 100vh;
     padding-top: 40px;
-    background-color: rgba(133, 241, 255, 0.8);
+    //background-color: rgba(133, 241, 255, 0.8);
+    background-color: white;
     -webkit-transition: all .3s;
     transition: all .3s;
     z-index: 20;
@@ -83,17 +84,16 @@
 
 .navItem-logout a {
     display: block;
-    color: black;
+    color: white;
     padding: 1rem;
     width: 100%;
     margin: 0 auto;
-    border-radius: 3rem;
+    background-color: #2d2d2d;
 }
 .navItem-logout a:hover {
     display: block;
-    color: black;
-    border-radius: 3rem;
-    background-color: rgb(245, 150, 150);
+    color: white;
+    background-color: #494949;
     padding: 1rem;
     width: 100%;
     margin: 0 auto;
