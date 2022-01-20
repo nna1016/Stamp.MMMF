@@ -21,7 +21,7 @@
 
 * {
     margin: 0px;
-    padding: 0px;
+    // padding: 0px;
     text-decoration: none;
 }
 
@@ -38,12 +38,6 @@
 .alert-alert {
   @extend .alert-danger;
 }
-* {
-    margin: 0px;
-    padding: 0px;
-    text-decoration: none;
-}
-
 
 body{
     padding-bottom: 5vh;

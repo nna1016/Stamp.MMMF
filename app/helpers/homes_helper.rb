@@ -1,6 +1,7 @@
 module HomesHelper
     def stamp_list(index)
-        path = "https://pbs.twimg.com/profile_images/1022063592441446400/_truTOvX_400x400.jpg"
+        stamp_list = ["creators", "design", "it", "tech"]
+        path = "/images/stamps/#{stamp_list[index-1]}.png"
         unless @get_stamp.nil?
             @get_stamp.each do |get_stamp|
                 if get_stamp.number == index
