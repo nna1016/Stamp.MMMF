@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get 'helps/announce' => "helps#announce"
   get "helps/support"
 
+  get 'get/stamp/:id' => 'get#stamp'
+
   get '*path', controller: 'application', action: 'render_404'
   post '*not_found', controller: 'application', action: 'routing_error'
   
