@@ -320,7 +320,6 @@ padding: 15px 0;
 .congrats_title {
   margin-top: 2vh;
   font-size: x-large;
-  color: red;
 }
 .prize_name {
   font-size: large;
@@ -359,7 +358,7 @@ padding: 15px 0;
   }
   #visit-stamp table {
     width: 40%;
-    max-width: 40%;
+    max-width: 30rem;
     margin: 20px auto;
     border-collapse: collapse;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
@@ -374,7 +373,6 @@ padding: 15px 0;
   }
   #visit-stamp table {
     width: 70%;
-    max-width: 70%;
     table-layout: fixed;
     margin: 20px auto;
     border-collapse: collapse;
@@ -400,7 +398,7 @@ padding: 15px 0;
 	text-align: center;
 	border: 1px solid #fc0;
 }
-#visit-stamp th {
-	background: #ff9;
-	color: #c00;
+
+#visit-stamp thead .stamp_img {
+  width: 40%;
 }

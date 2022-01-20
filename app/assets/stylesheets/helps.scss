@@ -69,3 +69,43 @@
 .push {
 	padding: 10px;
 }
+
+.terms {
+	max-width: 85%;
+	margin: auto;
+	padding-bottom: 8rem;
+}
+
+.terms-style1 {
+	font-size:250%;
+	font-weight: bold;
+	border-bottom: solid 3px;
+}
+
+.terms-style2 {
+	font-size:150%;
+	font-weight: bold; 
+	border-bottom: solid 3px;
+	padding-top: 2rem;
+}
+
+.section p, .section .term-li-style {
+	padding: 1rem 0 0 0;
+}
+
+.section .term-li-style .ul-inside {
+	padding-left: 0px;
+	list-style-position: inside;
+}
+
+.section .term-li-style li {
+	padding: 0.5rem 0;
+}
+
+.section .terms-end {
+	padding-top: 3rem;
+	text-align: right;
+}
+.section .terms-updated-at {
+	text-align: right;
+}
