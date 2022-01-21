@@ -1,4 +1,4 @@
-<h3>ユーザー詳細</h3>
+<h3 class="scaf_section">ユーザー詳細</h3>
 <div class="scaf_button" >
   <%= link_to '編集', edit_user_path(@user) %> | <nobr>
   <%= link_to '一覧へ', users_path %>
@@ -17,10 +17,6 @@
 
   <tr>
     <th>メールアドレス</th><td><%= @user.email %></td>
-  </tr>
-
-  <tr>
-    <th>現在のポイント</th><td><%= @user.point %></td>
   </tr>
 
   <tr>
@@ -44,61 +40,20 @@
 </table>
 </div>
 
-<h3>ポイント獲得履歴</h3><br>
-<h4>問題</h4>
+<h3 class="scaf_section">スタンプ獲得履歴</h3><br>
 <div  class="scaf_table">
 <table>
   <thead>
     <tr>
-      <th>問題</th>
-      <th>解答日時</th>
+      <th>スタンプID</th>
+      <th>獲得日時</th>
     </tr>
   </thead>
   <tbody>
-    <% @point_log.each do |point| %>
+    <% @get_logs.each do |get_log| %>
       <tr>
-        <td><a href="/quests/<%= point.answered_quest %>/quest"><%= point.answered_quest %></td>
-        <td><%= point.created_at.strftime("%Y年 %m月 %d日 %H時%M分%S秒") %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
-
-<h4>友情</h4>
-<div  class="scaf_table">
-<table>
-  <thead>
-    <tr>
-      <th>友達の学籍番号</th>
-      <th>入力日時</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @friend_log.each do |friend| %>
-      <tr>
-        <td><%= friend.friend_student_no %></td>
-        <td><%= friend.created_at.strftime("%Y年 %m月 %d日 %H時%M分%S秒") %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
-
-<h4>QR</h4>
-<div  class="scaf_table">
-<table>
-  <thead>
-    <tr>
-      <th>コード</th>
-      <th>入力日時</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @qr_log.each do |qr| %>
-      <tr>
-        <td><%= qr.id %></td>
-        <td><%= qr.created_at.strftime("%Y年 %m月 %d日 %H時%M分%S秒") %></td>
+        <td><%= get_log.stamp_id %></td>
+        <td><%= get_log.created_at.strftime("%Y年 %m月 %d日 %H時%M分%S秒") %></td>
       </tr>
     <% end %>
   </tbody>
