@@ -346,7 +346,7 @@ padding: 15px 0;
 
 
 
-#visit-stamp {
+#stamp-card {
   padding-bottom: 10%;
 }
 
@@ -356,7 +356,7 @@ padding: 15px 0;
     margin: 1vh 0;
     height: auto;
   }
-  #visit-stamp table {
+  #stamp-card table {
     width: 40%;
     max-width: 30rem;
     margin: 20px auto;
@@ -371,7 +371,7 @@ padding: 15px 0;
     margin: 1vh 0;
     height: auto;
   }
-  #visit-stamp table {
+  #stamp-card table {
     width: 70%;
     table-layout: fixed;
     margin: 20px auto;
@@ -381,7 +381,7 @@ padding: 15px 0;
 
 }
     
-#visit-stamp td {
+#stamp-card td {
   .stamp_img {
     width: 80%;
     object-fit: cover;
@@ -390,15 +390,15 @@ padding: 15px 0;
 
 
 
-#visit-stamp {
+#stamp-card {
 	/* スタンプが横にはみ出ないように */
 	overflow: hidden;
 }
-#visit-stamp th, #visit-stamp td {
+#stamp-card th, #stamp-card td {
 	text-align: center;
 	border: 1px solid #fc0;
 }
 
-#visit-stamp thead .stamp_img {
+#stamp-card thead .stamp_img {
   width: 40%;
 }
