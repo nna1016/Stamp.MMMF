@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :supports
   resources :stamps
-  resources :site_infos
+  get 'site_infos' => 'site_infos#index'
   get 'users/index'
   get 'users/show'
   resources :prizes
