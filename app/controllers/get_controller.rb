@@ -12,5 +12,7 @@ class GetController < ApplicationController
     redirect_to :root, notice: "スタンプGET！"
   end
 
-
+  def logs
+    @get_logs = GetStamp.all.order(created_at: "DESC")
+  end
 end
