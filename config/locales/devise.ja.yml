@@ -47,10 +47,11 @@ ja:
       signed_out: 'ログアウトしました。'
       already_signed_out: '既にログアウト済みです。'
     unlocks:
-      resend_unlock_instructions: "アカウントロック解除"
       send_instructions: 'アカウントロックの解除について数分以内にメールでご連絡します。'
       send_paranoid_instructions: 'アカウントが見つかった場合、アカウントの凍結解除方法を数分以内にメールでご連絡します。'
       unlocked: 'アカウントロックを解除しました。'
+      new: 
+        resend_unlock_instructions: "アカウントロック解除"
     shared:
       minimum_password_length: "（%{count}文字以上）"
       links:
