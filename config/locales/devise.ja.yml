@@ -8,8 +8,8 @@ ja:
       already_authenticated: 'すでにログインしています。'
       inactive: 'アカウントが有効化されていません。メールに記載された手順にしたがって、アカウントを有効化してください。'
       invalid: "%{authentication_keys} もしくはパスワードが正しくありません。"
-      locked: 'あなたのアカウントは凍結されています。'
-      last_attempt: 'あなたのアカウントが凍結される前に、複数回の操作がおこなわれています。'
+      locked: '一定回数ログインに失敗したため、アカウントをロックしました。'
+      last_attempt: 'もう一度ログインに失敗した場合アカウントをロックします。'
       not_found_in_database: "%{authentication_keys} もしくはパスワードが正しくありません。"
       timeout: 'セッションがタイムアウトしました。もう一度ログインしてください。'
       unauthenticated: 'アカウント登録もしくはログインしてください。'
@@ -20,7 +20,7 @@ ja:
       reset_password_instructions:
         subject: 'パスワードの再設定について'
       unlock_instructions:
-        subject: 'アカウントの凍結解除について'
+        subject: 'アカウントロックの解除について'
       password_change:
         subject: 'パスワードの変更について'
     omniauth_callbacks:
@@ -38,7 +38,7 @@ ja:
       destroyed: 'アカウントを削除しました。またのご利用をお待ちしております。'
       signed_up: 'アカウント登録が完了しました。'
       signed_up_but_inactive: 'ログインするためには、アカウントを有効化してください。'
-      signed_up_but_locked: 'アカウントが凍結されているためログインできません。'
+      signed_up_but_locked: 'アカウントがロックされているためログインできません。'
       signed_up_but_unconfirmed: '本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。'
       update_needs_confirmation: 'アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。'
       updated: 'アカウント情報を変更しました。'
@@ -47,21 +47,20 @@ ja:
       signed_out: 'ログアウトしました。'
       already_signed_out: '既にログアウト済みです。'
     unlocks:
-      send_instructions: 'アカウントの凍結解除方法を数分以内にメールでご連絡します。'
+      resend_unlock_instructions: "アカウントロック解除"
+      send_instructions: 'アカウントロックの解除について数分以内にメールでご連絡します。'
       send_paranoid_instructions: 'アカウントが見つかった場合、アカウントの凍結解除方法を数分以内にメールでご連絡します。'
-      unlocked: 'アカウントを凍結解除しました。'
+      unlocked: 'アカウントロックを解除しました。'
     shared:
       minimum_password_length: "（%{count}文字以上）"
       links:
         back: "戻る"
         didn_t_receive_confirmation_instructions: "確認メールが届かない方"
-        didn_t_receive_unlock_instructions: "アカウントの凍結解除方法のメールを受け取っていませんか?"
+        didn_t_receive_unlock_instructions: "アカウントロック解除"
         forgot_your_password: "パスワードを忘れた方"
         sign_in: "ログイン"
         sign_in_with_provider: "%{provider}でログイン"
         sign_up: "これから参加する方"
-        
-        
     confirmations:
       new:
         resend_confirmation_instructions: "確認メールの再送信"
@@ -70,8 +69,8 @@ ja:
       already_confirmed: 'は既に登録済みです。ログインしてください。'
       confirmation_period_expired: "の期限が切れました。%{period} までに確認する必要があります。 新しくリクエストしてください。"
       expired: 'の有効期限が切れました。新しくリクエストしてください。'
-      not_found: 'は見つかりませんでした。'
-      not_locked: 'は凍結されていません。'
+      not_found: 'は存在しないか、ロックされていません。'
+      not_locked: 'は存在しないか、ロックされていません。'
       not_saved:
         one: "エラー"
         other: "%{count} 件のエラー"
