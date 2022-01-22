@@ -38,14 +38,6 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def point_stop
-      if User.find(current_user.id).role_flag.to_i == 1 and Time.now >= Time.local(2021, 12, 23, 0, 0, 0, 0)
-        return true
-      else
-        return false
-      end
-    end
-
     def access_log
       begin
         @student_no = current_user.student_no
