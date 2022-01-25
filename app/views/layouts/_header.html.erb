@@ -12,13 +12,11 @@
                   <%= link_to '管理画面', setting_path, class: 'nav-link' %>
                 </li>
               <% end %>
-              <% if get_cnt == 5 %>
-                <li class="navItem">
-                    <%= link_to '抽選参加', tyusens_index_path, class: 'nav-link' %>
-                </li>
-              <% end %>
               <li class="navItem">
-                  <%= link_to '企画詳細', "https://act-neec.org/wakatsuku2022", class: 'nav-link' %>
+                  <%= link_to '抽選参加', tyusens_index_path, class: 'nav-link' %>
+              </li>
+              <li class="navItem">
+                  <%= link_to '企画詳細', "https://act-neec.org/wakatsuku2022", target: "_brank",  class: 'nav-link' %>
               </li>
               <li class="navItem">
                   <%= link_to 'Q&A', helps_support_path, class: 'nav-link' %>

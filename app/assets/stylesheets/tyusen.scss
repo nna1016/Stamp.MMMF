@@ -52,13 +52,35 @@
     animation-duration: 1.5s;
     animation-fill-mode: forwards;
     animation-delay: 5s;
-  }
-  
-  @keyframes fadeout {
+}
+
+@keyframes fadeout {
     0% {
-      opacity: 1;
+        opacity: 1;
     }
     100% {
-      opacity: 0;
+        opacity: 0;
     }
-  }
+}
+
+.tyusen-explanation {
+    padding: 3rem 0 5rem 0;
+    max-width: 20rem;
+    width: 80%;
+    margin: auto;
+}
+
+.tyusen-explanation table caption{
+    padding: 0;
+    caption-side: top;
+    color: black;
+    text-align: center;
+}
+
+.tyusen-explanation table caption{
+    padding: 0 0 0.5rem 0;
+    caption-side: top;
+    color: black;
+    text-align: center;
+    font-size: 1.5rem;
+}
