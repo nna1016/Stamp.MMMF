@@ -1,11 +1,11 @@
 class CreatePrizes < ActiveRecord::Migration[6.1]
   def change
     create_table :prizes do |t|
-      t.string :student_no
       t.string :prize
-      t.string :reg_user
+      t.integer :qty
+      t.string :category
+      t.string :image
       t.timestamps
     end
-    add_index :prizes, :student_no, unique: true
   end
 end
