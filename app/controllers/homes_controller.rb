@@ -10,7 +10,6 @@ class HomesController < ApplicationController
     @get_stamp = GetStamp.where(student_no: current_user.student_no)
     @stamp = Stamp.all
     @get_cnt = GetStamp.where(student_no: current_user.student_no).count
-    @prize = Prize.find_by(student_no: current_user.student_no)
   end
   
   def setting

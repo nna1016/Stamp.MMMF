@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'tyusen' => 'tyusen#index'
+  get 'tyusens/index'
+  get 'tyusens' => 'tyusens#new'
+  post 'tyusens/lottery'
   resources :supports
   resources :stamps
   get 'site_infos' => 'site_infos#index'

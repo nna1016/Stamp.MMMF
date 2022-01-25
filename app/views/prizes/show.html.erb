@@ -5,13 +5,16 @@
 </div>
 <table>
   <tr>
-    <th>学籍番号</th><td width="auto"><%= @prize.student_no %></td>
-  </tr>
-  <tr>
     <th>景品名</th><td><%= @prize.prize %></td>
   </tr>
-    <tr>
-    <th>登録者</th><td><%= @prize.reg_user %></td>
+  <tr>
+    <th>個数</th><td><%= @prize.qty %></td>
+  </tr>
+  <tr>
+    <th>カテゴリ</th><td><%= @prize.category %></td>
+  </tr>
+  <tr>
+    <th>画像</th><td><%= image_tag @prize.image.url, size: 100 %></td>
   </tr>
 </table>
 </div>
