@@ -428,7 +428,7 @@ padding: 15px 0;
     box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     cursor: pointer;
 }
-.stamp-item .stamp-card, .stamp-item .back {
+.stamp-item .stamp-card {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -453,7 +453,7 @@ padding: 15px 0;
   align-items: center;
   color: #47525d;
 }
-.stamp-item .back {
+.stamp-item .front, .stamp-item .back {
   position: absolute;
   width: 100%;
   height: 100%;
