@@ -1,10 +1,5 @@
 class TyusensController < ApplicationController
-
-  def index
-    @qr = format("%06d#{current_user.student_no}", current_user.id.to_i * 16)
-   
-  end
-
+  
   def new
     @tyusens = Tyusen.new
     @prize = session[:prize]

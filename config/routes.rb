@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'tyusens/index'
   get 'tyusens' => 'tyusens#new'
   post 'tyusens/lottery'
   resources :supports
