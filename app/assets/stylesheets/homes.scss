@@ -346,9 +346,6 @@ padding: 15px 0;
 
 
 
-#stamp-card {
-  padding-bottom: 10%;
-}
 
 @media only screen and (min-width: 800px) {
   .banner {
@@ -356,12 +353,21 @@ padding: 15px 0;
     margin: 1vh 0;
     height: auto;
   }
-  #stamp-card table {
-    width: 40%;
-    max-width: 30rem;
+
+  .stamp-block {
+    width: 40rem;
+    height: 55rem;
+    position: relative;
+    perspective: 800px;
+    border-radius: 5px;
+    margin: 5rem auto 10rem auto;
+    
+  }
+  
+  .stamp-card table {
+    box-sizing: border-box;
     margin: 20px auto;
     border-collapse: collapse;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
   }
 
 }
@@ -371,34 +377,97 @@ padding: 15px 0;
     margin: 1vh 0;
     height: auto;
   }
-  #stamp-card table {
-    width: 70%;
-    table-layout: fixed;
-    margin: 20px auto;
-    border-collapse: collapse;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
-  }
 
+  .stamp-block {
+    width: 17rem;
+    height: 27rem;
+    margin: auto;
+    position: relative;
+    perspective: 800px;
+    border-radius: 5px;
+    margin: 3rem auto 7rem auto;
+  }
+  
+  .stamp-card table {
+    position: absolute;
+    table-layout: fixed;
+    margin: auto;
+    width: 100%;
+    border-collapse: collapse;
+  }
 }
     
-#stamp-card td {
-  .stamp_img {
-    width: 80%;
-    object-fit: cover;
-  }
+.stamp-card .stamp_img {
+  width: 80%;
+  object-fit: cover;
 }
 
 
 
-#stamp-card {
+.stamp-card {
 	/* スタンプが横にはみ出ないように */
 	overflow: hidden;
 }
-#stamp-card th, #stamp-card td {
+.stamp-card th, .stamp-card td {
 	text-align: center;
 	border: 1px solid #fc0;
 }
 
-#stamp-card thead .stamp_img {
+.stamp-card thead .stamp_img {
   width: 40%;
+}
+
+
+.stamp-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    border-radius: 6px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+.stamp-item .stamp-card, .stamp-item .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 6px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #47525d;
+}
+
+.stamp-item .stamp-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 6px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #47525d;
+}
+.stamp-item .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 6px;
+  background: #fff;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  color: #47525d;
+}
+.stamp-item .back {
+    transform: rotateY(180deg);
+}
+.stamp-item.flipped {
+    transform: rotateY(180deg);
 }
