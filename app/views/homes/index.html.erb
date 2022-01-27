@@ -34,23 +34,31 @@
 </div>
 
 
-<div id="stamp-card">
-	<table>
-		<thead>
-			<tr>
-				<th colspan="2"><%= image_tag "/images/wakatuku.png", class: "stamp_img"%></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><%= image_tag stamp_list(1), class: "stamp_img"%></td>
-				<td><%= image_tag stamp_list(2), class: "stamp_img" %></td>
-			</tr>
-			<tr>
-				<td><%= image_tag stamp_list(3), class: "stamp_img" %></td>
-				<td><%= image_tag stamp_list(4), class: "stamp_img" %></td>
-			</tr>
-			</tr>
-		</tbody>
-	</table>
+<div class="profile-area">
+  <div class="profile">
+    <div class="front">			
+		<div id="stamp-card">
+            <table Border Frame="Void">
+                <thead>
+                    <tr>
+                        <th colspan="2"><%= image_tag "/images/wakatuku.png", class: "stamp_img"%></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><%= image_tag stamp_list(1), class: "stamp_img"%></td>
+                        <td><%= image_tag stamp_list(2), class: "stamp_img" %></td>
+                    </tr>
+                    <tr>
+                        <td><%= image_tag stamp_list(3), class: "stamp_img" %></td>
+                        <td><%= image_tag stamp_list(4), class: "stamp_img" %></td>
+                    </tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>		
+	</div>
+    <div class="back">Yo, what up?</div>
+  </div>
 </div>
+
