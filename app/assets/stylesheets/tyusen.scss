@@ -7,9 +7,9 @@
     width: 15rem;
     text-align: center;
     margin: auto;
-    border: 0.5px solid;
     border-radius: 20px;
     background-color: white;
+    margin-bottom: -1rem;
 }
 
 .tyusen-form-area {
@@ -64,23 +64,16 @@
 }
 
 .tyusen-explanation {
-    padding: 3rem 0 5rem 0;
-    max-width: 20rem;
     width: 80%;
     margin: auto;
+    text-align: center;
 }
 
-.tyusen-explanation table caption{
+.tyusen-explanation th {
     padding: 0;
-    caption-side: top;
-    color: black;
-    text-align: center;
 }
 
-.tyusen-explanation table caption{
-    padding: 0 0 0.5rem 0;
-    caption-side: top;
-    color: black;
-    text-align: center;
-    font-size: 1.5rem;
+.tyusen-explanation p {
+    padding-top: 1rem;
+    margin-bottom: 0;
 }

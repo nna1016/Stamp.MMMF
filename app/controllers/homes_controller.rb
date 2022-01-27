@@ -10,6 +10,7 @@ class HomesController < ApplicationController
     @get_stamp = GetStamp.where(student_no: current_user.student_no)
     @stamp = Stamp.all
     @get_cnt = GetStamp.where(student_no: current_user.student_no).count
+    @qr = format("%06d#{current_user.student_no}", current_user.id.to_i * 16)
   end
   
   def setting
