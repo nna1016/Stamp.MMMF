@@ -354,7 +354,7 @@ padding: 15px 0;
     height: auto;
   }
 
-  .profile-area {
+  .stamp-block {
     width: 40rem;
     height: 55rem;
     position: relative;
@@ -364,7 +364,7 @@ padding: 15px 0;
     
   }
   
-  #stamp-card table {
+  .stamp-card table {
     box-sizing: border-box;
     margin: 20px auto;
     border-collapse: collapse;
@@ -378,7 +378,7 @@ padding: 15px 0;
     height: auto;
   }
 
-  .profile-area {
+  .stamp-block {
     width: 17rem;
     height: 27rem;
     margin: auto;
@@ -388,7 +388,7 @@ padding: 15px 0;
     margin: 3rem auto 7rem auto;
   }
   
-  #stamp-card table {
+  .stamp-card table {
     position: absolute;
     table-layout: fixed;
     margin: auto;
@@ -397,7 +397,7 @@ padding: 15px 0;
   }
 }
     
-#stamp-card td {
+.stamp-card td {
   .stamp_img {
     width: 80%;
     object-fit: cover;
@@ -406,21 +406,21 @@ padding: 15px 0;
 
 
 
-#stamp-card {
+.stamp-card {
 	/* スタンプが横にはみ出ないように */
 	overflow: hidden;
 }
-#stamp-card th, #stamp-card td {
+.stamp-card th, .stamp-card td {
 	text-align: center;
 	border: 1px solid #fc0;
 }
 
-#stamp-card thead .stamp_img {
+.stamp-card thead .stamp_img {
   width: 40%;
 }
 
 
-.profile {
+.stamp-item {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -430,7 +430,7 @@ padding: 15px 0;
     box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     cursor: pointer;
 }
-.profile div {
+.stamp-item div {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -442,9 +442,9 @@ padding: 15px 0;
     align-items: center;
     color: #47525d;
 }
-.profile .back {
+.stamp-item .back {
     transform: rotateY(180deg);
 }
-.profile.flipped {
+.stamp-item.flipped {
     transform: rotateY(180deg);
 }
