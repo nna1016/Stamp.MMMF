@@ -1,6 +1,6 @@
 function profile() {
-  $('.profile-area').on('click', function () {
-    $('.profile').toggleClass('flipped');
+  $('.stamp-block').on('click', function () {
+    $('.stamp-item').toggleClass('flipped');
   });
 };
 profile();
