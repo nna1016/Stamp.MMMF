@@ -66,14 +66,16 @@
 .tyusen-explanation {
     width: 80%;
     margin: auto;
-    text-align: center;
 }
 
 .tyusen-explanation th {
     padding: 0;
 }
 
-.tyusen-explanation p {
-    padding-top: 1rem;
-    margin-bottom: 0;
+.tyusen-explanation table {
+    margin-bottom: 1rem;
+}
+
+.tyusen-explanation .tyusen-link {
+    text-align: right;
 }
