@@ -13,14 +13,10 @@
 
   <table class="scaf_table">
   <tr>
-    <th>表示ID</th><td><%= form.number_field :number, placeholder: "1~8(スタンプ表示位置)", class: "form-control", min: 1, max: 8, required: true, autofocus: true %></td>
+    <th>表示ID</th><td><%= form.number_field :number, placeholder: "1~4(スタンプ表示位置)", class: "form-control", min: 1, max: 4, required: true, autofocus: true %></td>
   </tr>
   <tr>
-    <% if request.fullpath.include?("new") %>
       <th>画像<td><%= form.file_field :image, class: "form-file-img", id: :file_img, :required => true, accept: 'image/*' %><br></td>
-    <% else %>
-      <th>画像<td><%= image_tag stamp.image.url, size: "100" %></td>
-    <% end %>
   </tr>
 </table>
   <%= form.text_field :stamp_id, value: SecureRandom.alphanumeric(16),  style: "display:none" %>
