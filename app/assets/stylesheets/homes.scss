@@ -29,7 +29,7 @@ body{
 .cards-container{
   width: 793px;
   max-width: 100%;
-  margin: auto;
+  margin: 2rem auto;
 }
 .card{
     margin: auto;
@@ -355,12 +355,13 @@ padding: 15px 0;
   }
 
   .stamp-block {
+    user-select: none;
     width: 40rem;
     height: 55rem;
     position: relative;
     perspective: 800px;
     border-radius: 5px;
-    margin: 5rem auto 10rem auto;
+    margin: 0 auto 10rem auto;
     
   }
   
@@ -379,13 +380,14 @@ padding: 15px 0;
   }
 
   .stamp-block {
+    user-select: none;
     width: 17rem;
     height: 27rem;
     margin: auto;
     position: relative;
     perspective: 800px;
     border-radius: 5px;
-    margin: 3rem auto 7rem auto;
+    margin: 0 auto 7rem auto;
   }
   
   .stamp-card table {
