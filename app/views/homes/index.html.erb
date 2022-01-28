@@ -53,7 +53,6 @@
                         <td><%= image_tag stamp_list(3), class: "stamp_img" %></td>
                         <td><%= image_tag stamp_list(4), class: "stamp_img" %></td>
                     </tr>
-                    </tr>
                 </tbody>
             </table>
         </div>		
@@ -71,15 +70,15 @@
                         <th>当選景品</th>
                     </thead>
                     <tbody>
-                        <tr <%= style="background:blue;" %>>
+                        <tr style="<%= "background-color:rgba(0,153,255,0.3);" if @get_cnt <= 2 %>">
                             <td>1~2個</td>
                             <td>参加賞</td>
                         </tr>
-                        <tr <%= style="background:blue;" if @get_cnt <= 4 %>>
+                        <tr style="<%= "background-color:rgba(0,153,255,0.3);" if @get_cnt == 3 or @get_cnt == 4 %>">
                             <td>3~4個</td>
                             <td>参加賞~中間</td>
                         </tr>
-                        <tr <%= style="background-color:blue;" if @get_cnt == 5 %>>
+                        <tr style="<%= "background-color:rgba(0,153,255,0.3);" if @get_cnt == 5 %>">
                             <td>5個</td>
                             <td>参加賞~豪華</td>
                         </tr>
