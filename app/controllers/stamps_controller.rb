@@ -1,5 +1,6 @@
 class StampsController < ApplicationController
   before_action :set_stamp, only: %i[ show edit update destroy ]
+  before_action -> {access_control(2)}
 
   # GET /stamps or /stamps.json
   def index

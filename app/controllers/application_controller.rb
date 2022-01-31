@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     before_action :authenticate_user!, except: [:info,:prizelist, :mmmf_terms, :support, :tyusen, :contact]
     before_action :configure_permitted_parameters, if: :devise_controller?
+    before_action :access_log
     
     unless Rails.env.development?
       rescue_from Exception, with: :render_500
@@ -28,7 +29,8 @@ class ApplicationController < ActionController::Base
 
     def access_control(role)
       if User.find(current_user.id).role_flag.to_i < role
-        render file: "#{Rails.root}/public/404.html", layout: false, status: 404
+        flash[:alert] = "権限不足です"
+        redirect_to setting_path and return 
       end
     end
 

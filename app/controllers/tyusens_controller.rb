@@ -1,5 +1,5 @@
 class TyusensController < ApplicationController
-  
+  before_action -> {access_control(3)}
   def new
     @tyusens = Tyusen.new
     @prize = session[:prize]
