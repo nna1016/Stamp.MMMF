@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    before_action :authenticate_user!, except: [:info,:prizelist, :mmmf_terms, :support, :tyusen]
+    before_action :authenticate_user!, except: [:info,:prizelist, :mmmf_terms, :support, :tyusen, :contact]
     before_action :configure_permitted_parameters, if: :devise_controller?
     
     unless Rails.env.development?
