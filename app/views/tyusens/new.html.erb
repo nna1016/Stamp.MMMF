@@ -13,6 +13,9 @@
     <div class="tyusen-result-area" id="fadeout">
         <p>おめでとう！</p>
         <p><%= @prize["prize"]%></p>
-        <%= image_tag @prize["image"]["url"] %>
+        <%= image_tag check_image(@prize["image"]["url"]) %>
     </div>
 <% end %>
+<script>
+  setFormValue('formName');
+</script>

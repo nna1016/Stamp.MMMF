@@ -48,13 +48,14 @@ prize.each_with_index do |p, cnt|
     Prize.create!(
         prize: p,
         qty: qty[cnt],
-        category: category[cnt]
-        
+        category: category[cnt],
+        image: "/images/noimage.png"
     )
 end
 
 Prize.create!(
     prize: "缶バッチ",
     qty: 2000,
-    category: "参加賞"
+    category: "参加賞",
+    image: "/images/noimage.png"
 )
