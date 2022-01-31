@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_23_035241) do
+ActiveRecord::Schema.define(version: 2022_01_31_150932) do
 
-  create_table "get_stamps", charset: "utf8mb4", force: :cascade do |t|
+  create_table "get_stamps", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "student_no"
     t.integer "number"
     t.string "stamp_id"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2022_01_23_035241) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "prizes", charset: "utf8mb4", force: :cascade do |t|
+  create_table "prizes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "prize"
     t.integer "qty"
     t.string "category"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_01_23_035241) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "site_infos", charset: "utf8mb4", force: :cascade do |t|
+  create_table "site_infos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "ip_add"
     t.string "student_no"
     t.string "path"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2022_01_23_035241) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "stamps", charset: "utf8mb4", force: :cascade do |t|
+  create_table "stamps", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "number"
     t.string "stamp_id"
     t.string "image"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2022_01_23_035241) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "supports", charset: "utf8mb4", force: :cascade do |t|
+  create_table "supports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "question"
     t.text "answer"
     t.string "kind"
@@ -54,18 +54,18 @@ ActiveRecord::Schema.define(version: 2022_01_23_035241) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "tyusens", charset: "utf8mb4", force: :cascade do |t|
+  create_table "tyusens", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "student_no"
     t.string "prize"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "student_no"
     t.string "name"
-    t.string "role_flag", default: "0"
+    t.string "role_flag", default: "1"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
