@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_01_23_035241) do
 
-  create_table "get_stamps", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "get_stamps", charset: "utf8mb4", force: :cascade do |t|
     t.string "student_no"
     t.integer "number"
     t.string "stamp_id"
@@ -20,16 +20,16 @@ ActiveRecord::Schema.define(version: 2022_01_23_035241) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "prizes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "student_no"
+  create_table "prizes", charset: "utf8mb4", force: :cascade do |t|
     t.string "prize"
-    t.string "reg_user"
+    t.integer "qty"
+    t.string "category"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["student_no"], name: "index_prizes_on_student_no", unique: true
   end
 
-  create_table "site_infos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "site_infos", charset: "utf8mb4", force: :cascade do |t|
     t.string "ip_add"
     t.string "student_no"
     t.string "path"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2022_01_23_035241) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "stamps", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "stamps", charset: "utf8mb4", force: :cascade do |t|
     t.integer "number"
     t.string "stamp_id"
     t.string "image"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2022_01_23_035241) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "supports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "supports", charset: "utf8mb4", force: :cascade do |t|
     t.text "question"
     t.text "answer"
     t.string "kind"
@@ -54,14 +54,14 @@ ActiveRecord::Schema.define(version: 2022_01_23_035241) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "tyusens", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "tyusens", charset: "utf8mb4", force: :cascade do |t|
     t.string "student_no"
     t.string "prize"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "student_no"
     t.string "name"
