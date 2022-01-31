@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-  before_action -> {access_control(3)}, :access_log
+  before_action -> {access_control(5)}
     # GET /problems or /problems.json
     def index
       @act_users = User.where.not(role_flag: 1)

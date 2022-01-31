@@ -1,5 +1,4 @@
 class HelpsController < ApplicationController
-  before_action :access_log
   
   def mmmf_terms 
   end

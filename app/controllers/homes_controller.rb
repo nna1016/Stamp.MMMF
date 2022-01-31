@@ -1,6 +1,5 @@
 class HomesController < ApplicationController
-  before_action -> {access_control(2)}, except: [:index, :info, :tyusen]
-  before_action :access_log
+  before_action -> {access_control(2)}, except: [:index, :info]
   
   def index
     if GetStamp.find_by(student_no: current_user.student_no, stamp_id: "act").nil?
