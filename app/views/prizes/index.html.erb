@@ -20,7 +20,7 @@
         <td><%= link_to prize.prize, prize %></td>
         <td><%= prize.qty %></td>
         <td><%= prize.category %></td>
-        <td><%= image_tag prize.image.url, size: "100" %></td>
+        <td><%= image_tag check_image(prize.image.url), size: "100" %></td>
       </tr>
     <% end %>
   </tbody>

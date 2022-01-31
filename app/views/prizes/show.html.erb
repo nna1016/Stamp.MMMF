@@ -14,7 +14,7 @@
     <th>カテゴリ</th><td><%= @prize.category %></td>
   </tr>
   <tr>
-    <th>画像</th><td><%= image_tag @prize.image.url, size: 100 %></td>
+    <th>画像</th><td><%= image_tag check_image(@prize.image.url), size: 100 %></td>
   </tr>
 </table>
 </div>
