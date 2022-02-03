@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :staffs
   get 'adminimanages/in'
+  get 'adminimanages/ticket_qr'
+  get 'adminimanages/index'
+  get 'adminimanages/auto'
+  get 'adminimanages/success_in'
+  get 'adminimanages/success_out'
   get 'adminimanages/form'
   post 'adminimanages/form' => 'adminimanages#create'
   get 'adminimanages/out'

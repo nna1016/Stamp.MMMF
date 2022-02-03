@@ -1,5 +1,3 @@
-<meta http-equiv="Refresh" content="1.5; url=<%= request.referer %>">
-<%= audio_tag"/audio/error.mp3", autoplay: true, controls: false %>
 <script>
     function twoDigit(num) {
         let ret;
@@ -36,13 +34,16 @@
 		</script>
 	</div>
 	<div class="time">
-		(ﾟДﾟ≡ﾟДﾟ)?
+		<a id="realtime"></a>
 	</div>
 	<div class="cate">
 		Process：
 	</div>
-	<div class="cate-text-E">
-		ERROR
+	<div class="cate-text-A">
+		自動判別
 	</div>
+    <%= form_with(model: @adminimanages, url: {controller: 'adminimanages', action: 'success'}) do |f| %>
+		<%= f.text_field :user_id, required: true, autofocus: true, placeholder: "" %>
+    <% end %>
 	
 </body>
