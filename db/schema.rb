@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_03_070606) do
+ActiveRecord::Schema.define(version: 2022_02_03_163656) do
 
   create_table "adminimanages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "user_id"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 2022_02_03_070606) do
     t.string "ip_add"
     t.string "student_no"
     t.string "path"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "staffs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "staff_id"
+    t.string "group"
+    t.text "info"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
