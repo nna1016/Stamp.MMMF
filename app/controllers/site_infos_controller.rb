@@ -4,6 +4,7 @@ class SiteInfosController < ApplicationController
   def index
     @site_infos = SiteInfo.all.order(created_at: "DESC")
     @site_cnt = SiteInfo.count
+    @ip_cnt = SiteInfo.select(:ip_add).distinct.count
   end
 
 end
