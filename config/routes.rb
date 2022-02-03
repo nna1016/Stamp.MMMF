@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'tyusens' => 'tyusens#new'
+  get 'tyusen' => 'tyusens#new'
   post 'tyusens/lottery'
   resources :supports
   resources :stamps
