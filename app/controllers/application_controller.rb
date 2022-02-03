@@ -28,7 +28,9 @@ class ApplicationController < ActionController::Base
     end
 
     def access_control(role)
-      if User.find(current_user.id).role_flag.to_i < role
+      if current_user.role_flag == "1"
+        render 'errors/404', status: :not_found
+      elsif User.find(current_user.id).role_flag.to_i < role
         flash[:alert] = "権限不足です"
         redirect_to setting_path and return 
       end
