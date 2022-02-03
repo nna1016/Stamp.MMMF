@@ -18,8 +18,21 @@ class DeviseUsers::RegistrationsController < Devise::RegistrationsController
     end
     params[:user][:student_no] = student_no
     params[:user][:email] = email
-    super
+    
+    @user = User.new(user_params)
+    if @user.save
+      flash[:notice] = "ユーザー認証メールを送信いたしました。認証が完了しましたらログインをお願いいたします。"
+      redirect_to new_user_session_path
+    else
+      flash[:alert] = "ユーザー登録に失敗しました。"
+      render action: :new and return
+    end
   end
+
+  private
+      def user_params
+        params.require(:user).permit(:student_no, :email, :name, :password, :password_confirmation)
+      end
 
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
