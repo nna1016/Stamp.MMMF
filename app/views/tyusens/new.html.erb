@@ -9,13 +9,10 @@
     <% end %>
 </div>
 
-<% if !@prize.nil? %>
+<% if !@prize.blank? %>
     <div class="tyusen-result-area" id="fadeout">
         <p>おめでとう！</p>
         <p><%= @prize["prize"]%></p>
         <%= image_tag check_image(@prize["image"]["url"]) %>
     </div>
 <% end %>
-<script>
-  setFormValue('formName');
-</script>

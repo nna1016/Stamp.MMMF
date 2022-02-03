@@ -8,13 +8,14 @@ class TyusensController < ApplicationController
 
   def lottery    
     qr = params[:student_no]
+    session[:prize] = ""
     user = User.find_by(id: qr.slice(0..6).to_i / 16)
     if user.nil?
       flash[:alert] = "ユーザーが見つかりませんでした"
-      redirect_to tyusens_path
+      redirect_to tyusen_path
     elsif !Tyusen.find_by(student_no: user.student_no).nil?
       flash[:alert] = "既に抽選に参加済みです"
-      redirect_to tyusens_path
+      redirect_to tyusen_path
     else  
       user_stamp = GetStamp.where(student_no: qr.slice(6..-1)).count
       if user_stamp <= 2
