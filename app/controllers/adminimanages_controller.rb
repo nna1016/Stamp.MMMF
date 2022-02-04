@@ -70,9 +70,9 @@ class AdminimanagesController < ApplicationController
     @adminimanages = Adminimanage.all
     @adminicnt = Adminimanage.count
     @adminiused = Adminimanage.where.not(in: nil?).count
-    @adminiunused = @cnt - @used
+    @adminiunused = @adminicnt - @adminiused
   end
   def ticket_qr
-    @adminimanages = Adminimanage.where(role: "1")
+    @adminimanages = Adminimanage.where(role: "1").where(in: nil)
   end
 end
