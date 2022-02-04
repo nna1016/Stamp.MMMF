@@ -1,5 +1,5 @@
 class GetController < ApplicationController
-  before_action -> {access_control(5)}
+  before_action -> {access_control(2)}
   def stamp
     @get_stamp = params[:id]
     @stamp = Stamp.find_by(stamp_id: @get_stamp)
