@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-
-  resources :staffs
+  resources :staffs do
+    collection {post :import}
+  end
   get 'adminimanages/in'
   get 'adminimanages/ticket_qr'
   get 'adminimanages/index'
