@@ -93,3 +93,5 @@ gem 'dotenv-rails'
 
 # 'AWS - JSエラー回避'
 gem 'mini_racer',       '~> 0.3.1'
+# ccsv取り込み
+gem 'roo'

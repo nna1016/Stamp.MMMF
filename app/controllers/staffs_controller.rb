@@ -55,7 +55,10 @@ class StaffsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def import
+    Staff.import(params[:file])
+    redirect_to staffs_path
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_staff
@@ -66,4 +69,5 @@ class StaffsController < ApplicationController
     def staff_params
       params.require(:staff).permit(:staff_id, :group, :info)
     end
+
 end
