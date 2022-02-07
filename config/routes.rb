@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get 'adminimanages/out'
   post 'adminimanages/success'
   get 'adminimanages/error'
-  get 'tyusen' => 'tyusens#new'
+  get 'tyusen/hinamatsuri' => 'tyusens#hinamatsuri'
+  get 'tyusen/valentine' => 'tyusens#valentine'
   post 'tyusens/lottery'
   resources :supports
   resources :stamps
