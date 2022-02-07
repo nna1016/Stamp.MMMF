@@ -5,7 +5,8 @@ class PrizesController < ApplicationController
 
   # GET /prizes or /prizes.json
   def index
-    @prizes = Prize.all
+    @vale_prizes = Prize.select(kind: "バレンタイン")
+    @hina_prizes = Prize.select(kind: "ひなまつり")
   end
 
   # GET /prizes/1 or /prizes/1.json
