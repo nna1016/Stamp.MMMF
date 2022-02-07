@@ -90,6 +90,7 @@ end
 # 環境変数の管理をするもの
 gem 'dotenv-rails'
 
-
-# 'AWS - JSエラー回避'
-gem 'mini_racer',       '~> 0.3.1'
+# 'AWS? - JSエラー回避'
+#gem 'mini_racer',       '~> 0.3.1'
+# csv取り込み
+gem 'roo'
