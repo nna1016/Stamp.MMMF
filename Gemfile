@@ -81,12 +81,12 @@ gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 
 #AWS用unicorn
-# group :production, :staging do
-#     gem 'unicorn', '6.0.0'
-# end
-# group :development, :staging do
-#     gem 'unicorn', '6.0.0'
-# end
+group :production, :staging do
+    gem 'unicorn', '6.0.0'
+end
+group :development, :staging do
+    gem 'unicorn', '6.0.0'
+end
 # 環境変数の管理をするもの
 gem 'dotenv-rails'
 
