@@ -13,15 +13,19 @@
 
   <table class="scaf_table">
   <tr>
+    <th>種類</th><td><%= form.select :kind, ['バレンタイン', 'ひな祭り'], { include_blank: '選択してください'}, {class: "form-control", required: true, autofocus: true} %></td>
+  </tr>
+
+  <tr>
     <th>景品名</th><td><%= form.text_field :prize, class: "form-control", required: true, autofocus: true %></td>
   </tr>
     
   <tr>
-    <th>個数</th><td><%= form.text_field :qty, class: "form-control", required: true %></td>
+    <th>個数</th><td><%= form.number_field :qty, class: "form-control", required: true %></td>
   </tr>
 
   <tr>
-    <th>カテゴリ</th><td><%= form.text_field :category, class: "form-control", required: true %></td>
+    <th>カテゴリ</th><td><%= form.select :category,  ['豪華', '中間', '参加賞'], { include_blank: '選択してください'}, {class: "form-control", required: true} %></td>
   </tr>
 
   <tr>
