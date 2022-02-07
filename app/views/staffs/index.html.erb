@@ -15,12 +15,12 @@
 
   <tbody>
     <% @staffs.each do |staff| %>
-    <% @qr = ::RQRCode::QRCode.new(staff.staff_id ) %>
+    <% @qr = ::RQRCode::QRCode.new(staff.staff_id,  level: :h) %>
       <tr>
         <td><%= staff.staff_id %></td>
         <td><%= staff.group %></td>
         <td><%= staff.info %></td>
-        <td><%= image_tag ChunkyPNG::Image.from_datastream(@qr.as_png.to_datastream).resize(150, 150).to_data_url %></td>
+        <td><%= image_tag ChunkyPNG::Image.from_datastream(@qr.as_png.to_datastream).resize(170, 170).to_data_url %></td>
         <td><%= link_to 'Show', staff %></td>
         <td><%= link_to 'Edit', edit_staff_path(staff) %></td>
         <td><%= link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
