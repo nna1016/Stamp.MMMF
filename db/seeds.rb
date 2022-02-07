@@ -1,4 +1,4 @@
-prize = [
+hina_prize = [
     "macbook Air",
     "ipad pro 128GB wifiモデル",
     "dyson Cyclone V10 Fluffy",
@@ -10,10 +10,11 @@ prize = [
     "クオカード(３０００円)",
     "ホットアイマスク USB 電熱式 蒸気",
     "ベッドサイドランプ",
-    "ブローハイ"
+    "ブローハイ",
+    "かまトゥグッズ"
 ]
 
-qty = [
+hina_qty = [
     1,
     1,
     1,
@@ -25,10 +26,11 @@ qty = [
     10,
     5,
     5,
-    1
+    1,
+    2000
 ]
 
-category = [
+hina_category = [
     "豪華",
     "豪華",
     "豪華",
@@ -41,21 +43,61 @@ category = [
     "中間",
     "中間",
     "中間",
-    "中間"
+    "中間",
+    "参加賞"
 ]
 
-prize.each_with_index do |p, cnt|
+hina_prize.each_with_index do |p, cnt|
     Prize.create!(
         prize: p,
-        qty: qty[cnt],
-        category: category[cnt],
+        kind: "ひなまつり",
+        qty: hina_qty[cnt],
+        category: hina_category[cnt],
         image: "/images/noimage.png"
     )
 end
 
-Prize.create!(
-    prize: "缶バッチ",
-    qty: 2000,
-    category: "参加賞",
-    image: "/images/noimage.png"
-)
+vale_prize = [
+    "Nintendo Switch",
+    "Panasonic ヘアドライヤー",
+    "ペアクルージングチケット",
+    "選べる国産牛",
+    "One's Towel Lab",
+    "象印",
+    "Anker",
+    "IPSA",
+    "参加賞"
+]
+
+vale_qty = [
+    1,
+    1,
+    2,
+    4,
+    4,
+    4,
+    4,
+    1,
+    200
+]
+
+vale_category = [
+    "豪華",
+    "豪華",
+    "中間",
+    "中間",
+    "中間",
+    "中間",
+    "中間",
+    "参加賞"
+]
+
+vale_prize.each_with_index do |p, cnt|
+    Prize.create!(
+        prize: p,
+        kind: "バレンタイン",
+        qty: vale_qty[cnt],
+        category: vale_category[cnt],
+        image: "/images/noimage.png"
+    )
+end
