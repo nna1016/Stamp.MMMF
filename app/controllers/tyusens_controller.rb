@@ -1,6 +1,12 @@
 class TyusensController < ApplicationController
   before_action -> {access_control(3)}
-  def new
+  def hinamatsuri
+    @tyusens = Tyusen.new
+    @prize = session[:prize]
+    @prize_cnt = Prize.all.sum:qty
+  end
+
+  def valentine
     @tyusens = Tyusen.new
     @prize = session[:prize]
     @prize_cnt = Prize.all.sum:qty
@@ -12,10 +18,10 @@ class TyusensController < ApplicationController
     user = User.find_by(id: qr.slice(0..6).to_i / 16)
     if user.nil?
       flash[:alert] = "ユーザーが見つかりませんでした"
-      redirect_to tyusen_path
+      redirect_to  request.referer
     elsif !Tyusen.find_by(student_no: user.student_no).nil?
       flash[:alert] = "既に抽選に参加済みです"
-      redirect_to tyusen_path
+      redirect_to  request.referer
     else  
       user_stamp = GetStamp.where(student_no: qr.slice(6..-1)).count
       if user_stamp <= 2
