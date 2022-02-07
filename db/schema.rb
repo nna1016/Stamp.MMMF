@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_07_020055) do
+ActiveRecord::Schema.define(version: 2022_02_07_043441) do
 
   create_table "adminimanages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "user_id"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_020055) do
 
   create_table "tyusens", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "student_no"
+    t.string "kind"
     t.string "prize"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
