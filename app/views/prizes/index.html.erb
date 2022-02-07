@@ -6,6 +6,7 @@
 <table>
   <thead>
     <tr>
+      <th>種類</th>
       <th>景品名</th>
       <th>個数</th>
       <th>カテゴリ</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @prizes.each do |prize| %>
       <tr>
+        <td><%= prize.kind %></td>
         <td><%= link_to prize.prize, prize %></td>
         <td><%= prize.qty %></td>
         <td><%= prize.category %></td>
