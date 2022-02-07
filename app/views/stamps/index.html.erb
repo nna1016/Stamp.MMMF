@@ -7,7 +7,7 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>表示ID</th>
+      <th>表示位置</th>
       <th>識別ID</th>
       <th>獲得URL</th>
       <th>画像</th>
@@ -19,7 +19,7 @@
     <% @stamps.each do |stamp| %>
       <tr>
         <td><%= link_to format("%06d", stamp.id), stamp %></td>
-        <td><%= stamp.number %></td>
+        <td><%= stamp_number(stamp.number) %></td>
         <td><%= stamp.stamp_id %></td>
         <td><a href='<%="/get/stamp/#{stamp.stamp_id}"%>'>ここをクリック</a></td>
         <td><%= image_tag stamp.image.url, size: "100" %></td>
