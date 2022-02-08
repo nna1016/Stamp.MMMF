@@ -27,16 +27,16 @@ class TyusensController < ApplicationController
       flash[:alert] = "ユーザーが見つかりませんでした"
       redirect_to  request.referer
     elsif request.referer.include?("valentine")
-      if !Tyusen.find_by(student_no: user.student_no, kind: "バレンタイン").nil?
-        flash[:alert] = "既に抽選に参加済みです"
-        redirect_to  request.referer and return
-      end
+      #if !Tyusen.find_by(student_no: user.student_no, kind: "バレンタイン").nil?
+      #  flash[:alert] = "既に抽選に参加済みです"
+      #  redirect_to  request.referer and return
+      #end
       prize_list = []
       Prize.all.each do |prize|
         prize.qty.times do |time|
           prize_list.append(prize.prize)
         end
-      #end
+      end
       result = prize_list[rand(0..Prize.all.sum(:qty)-1)]
       prize = Prize.find_by(prize: result)
       session[:prize] = Prize.find_by(prize: result)
