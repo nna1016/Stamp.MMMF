@@ -46,7 +46,7 @@ class TyusensController < ApplicationController
     elsif request.referer.include?("hinamatsuri")
       if !Tyusen.find_by(student_no: user.student_no, kind: "ひなまつり").nil?
         flash[:alert] = "既に抽選に参加済みです"
-        #redirect_to  request.referer and return
+        redirect_to  request.referer and return
       end
       Prize.where(kind: "ひなまつり").sum(:qty).times do
       user_stamp = GetStamp.where(student_no: qr.slice(6..-1)).count
