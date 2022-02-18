@@ -27,10 +27,10 @@ class TyusensController < ApplicationController
       flash[:alert] = "ユーザーが見つかりませんでした"
       redirect_to  request.referer and return
     elsif request.referer.include?("valentine")
-      if !Tyusen.find_by(student_no: user.student_no, kind: "バレンタイン").nil?
-        flash[:alert] = "既に抽選に参加済みです"
-        redirect_to  request.referer and return
-      end
+      #if !Tyusen.find_by(student_no: user.student_no, kind: "バレンタイン").nil?
+      #  flash[:alert] = "既に抽選に参加済みです"
+      #  redirect_to  request.referer and return
+      #end
       prize_list = []
       Prize.where(kind: "バレンタイン").each do |prize|
         prize.qty.times do |time|
@@ -44,10 +44,10 @@ class TyusensController < ApplicationController
       prize.update(prize: prize.prize, kind: "バレンタイン", qty: prize.qty - 1, category: prize.category)  
     
     elsif request.referer.include?("hinamatsuri")
-      if !Tyusen.find_by(student_no: user.student_no, kind: "ひなまつり").nil?
-        flash[:alert] = "既に抽選に参加済みです"
-        redirect_to  request.referer and return
-      end
+      #if !Tyusen.find_by(student_no: user.student_no, kind: "ひなまつり").nil?
+      #  flash[:alert] = "既に抽選に参加済みです"
+      #  redirect_to  request.referer and return
+      #end
       Prize.where(kind: "ひなまつり").sum(:qty).times do
       user_stamp = GetStamp.where(student_no: qr.slice(6..-1)).count
       if user_stamp <= 2
