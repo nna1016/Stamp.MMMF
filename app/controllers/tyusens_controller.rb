@@ -107,11 +107,11 @@ class TyusensController < ApplicationController
   end
 
   def checkout
-    @checkv = Tyusen.find_by(student_no: params[:student_no])
+    @checkv = Tyusen.find_by(student_no: params[:student_no].slice(6..-1))
   end
 
   def check
-    checkv = Tyusen.find_by(student_no: params[:student_no])
+    checkv = Tyusen.find_by(student_no: params[:student_no].slice(6..-1))
     if checkv.nil?
       flash[:alert] = "バレンタイン抽選が行われておりません"
     elsif heckv.check == "受け取り"
