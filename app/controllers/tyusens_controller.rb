@@ -106,4 +106,23 @@ class TyusensController < ApplicationController
     params[:student_no]
   end
 
+  def checkout
+
+  end
+
+  def check
+    checkv = Tyusen.where(student_no: params[:student_no]).where(kind: "バレンタイン")
+    if checkv.nil?
+      flash[:alert] = "バレンタイン抽選が行われておりません"
+    else
+      checkv.update(check: "受け取り済み")
+    end
+    checkh = Tyusen.where(student_no: params[:student_no]).where(kind: "ひなまつり")
+    if checkh.nil?
+      flash[:alert] = "ひなまつり抽選が行われておりません"
+    else
+      checkh.update(check: "受け取り済み")
+    end
+  end
+
 end
