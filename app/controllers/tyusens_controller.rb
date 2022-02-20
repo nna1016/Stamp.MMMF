@@ -123,6 +123,7 @@ class TyusensController < ApplicationController
     else
       checkh.update(check: "受け取り済み")
     end
+    redirect_to  request.referer and return
   end
 
 end
