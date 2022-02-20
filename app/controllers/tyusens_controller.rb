@@ -107,10 +107,7 @@ class TyusensController < ApplicationController
   end
 
   def checkout
-    if session[:checkv].nil?
-    else
-      @checkv = session[:checkv]
-    end
+    @checkv = Tyusen.where(student_no: params[:student_no]).where(kind: "バレンタイン")
   end
 
   def check
@@ -121,7 +118,7 @@ class TyusensController < ApplicationController
       checkv.update(check: "受け取り済み")
     end
     session[:checkv] = checkv
-    redirect_to request.referer and return
+    redirect_to tyusen_checkout_path(student_no: params[:student_no])
   end
 
 end
