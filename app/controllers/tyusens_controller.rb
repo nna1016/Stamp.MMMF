@@ -107,7 +107,10 @@ class TyusensController < ApplicationController
   end
 
   def checkout
-    @checkv = session[:checkv]
+    if session[:checkv].nil?
+    else
+      @checkv = session[:checkv]
+    end
   end
 
   def check
