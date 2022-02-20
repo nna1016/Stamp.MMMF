@@ -107,17 +107,16 @@ class TyusensController < ApplicationController
   end
 
   def checkout
-    @checkv = Tyusen.where(student_no: params[:student_no])
+    @checkv = Tyusen.find_by(student_no: params[:student_no])
   end
 
   def check
-    checkv = Tyusen.where(student_no: params[:student_no]).where(kind: "バレンタイン")
+    checkv = Tyusen.find_by(student_no: params[:student_no]).where(kind: "バレンタイン")
     if checkv.nil?
       flash[:alert] = "バレンタイン抽選が行われておりません"
     else
       checkv.update(check: "受け取り済み")
     end
-    session[:checkv] = checkv
     redirect_to tyusen_checkout_path(student_no: params[:student_no])
   end
 
