@@ -115,8 +115,8 @@ class TyusensController < ApplicationController
     checkv = Tyusen.find_by(student_no: u)
     if checkv.nil?
       flash[:alert] = "バレンタイン抽選が行われておりません"
-    elsif heckv.check == "受け取り"
-      checkv.update(check: "受け取り済")
+    #elsif heckv.check == "受け取り"
+    #  checkv.update(check: "受け取り済")
     else
       checkv.update(check: "受け取り")
     end
