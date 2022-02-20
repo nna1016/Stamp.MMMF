@@ -117,7 +117,7 @@ class TyusensController < ApplicationController
     else
       checkv.update(check: "受け取り済み")
     end
-    redirect_to  request.referer and return
+    redirect_to  request.referer
   end
 
 end
