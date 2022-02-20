@@ -112,12 +112,12 @@ class TyusensController < ApplicationController
 
   def check
     @checkv = Tyusen.where(student_no: params[:student_no]).where(kind: "バレンタイン")
-    if checkv.nil?
+    if @checkv.nil?
       flash[:alert] = "バレンタイン抽選が行われておりません"
     else
-      checkv.update(check: "受け取り済み")
+      @checkv.update(check: "受け取り済み")
     end
-    redirect_to tyusen_checkout_path
+    redirect_to request.referer and return
   end
 
 end
