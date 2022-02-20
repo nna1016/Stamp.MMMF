@@ -111,7 +111,7 @@ class TyusensController < ApplicationController
   end
 
   def check
-    checkv = Tyusen.find_by(student_no: params[:student_no]).where(kind: "バレンタイン")
+    checkv = Tyusen.find_by(student_no: params[:student_no])
     if checkv.nil?
       flash[:alert] = "バレンタイン抽選が行われておりません"
     else
