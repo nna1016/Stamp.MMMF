@@ -117,7 +117,7 @@ class TyusensController < ApplicationController
     else
       @checkv.update(check: "受け取り済み")
     end
-    redirect_to request.referer(student_no: params[:student_no])
+    redirect_to tyusen_checkout_path(student_no: params[:student_no])
   end
 
 end
