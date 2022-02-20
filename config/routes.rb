@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   get 'tyusen/hinamatsuri' => 'tyusens#hinamatsuri'
   get 'tyusen/valentine' => 'tyusens#valentine'
   get 'tyusen/checkout' => 'tyusens#checkout'
-  get 'tyusen/checkout/:student_no' => 'tyusens#checkout'
   post 'tyusens/lottery'
   post 'tyusens/check'
   resources :supports
