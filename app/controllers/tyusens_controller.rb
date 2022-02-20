@@ -107,7 +107,7 @@ class TyusensController < ApplicationController
   end
 
   def checkout
-    @checkv = Tyusen.where(student_no: params[:student_no]).where(kind: "バレンタイン")
+    @checkv = Tyusen.where(student_no: params[:student_no])
   end
 
   def check
