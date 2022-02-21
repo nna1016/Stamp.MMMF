@@ -80,4 +80,9 @@ class AdminimanagesController < ApplicationController
   def ticket_qr
     @adminimanages = Adminimanage.where(role: "1").where(in: nil)
   end
+
+  def count
+    @htin = Adminimanage.where.not(in: nil)
+    @hin = Adminimanage.where.not(in: nil).where(out: nil)
+  end
 end
