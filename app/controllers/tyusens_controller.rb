@@ -107,20 +107,22 @@ class TyusensController < ApplicationController
   end
 
   def checkout
-    @checkv = Tyusen.find_by(student_no: params[:student_no].slice(6..-1))
+    @checkv = Tyusen.find_by(student_no: params[:student_no].slice(6..-1)) if !params[:student_no].nil?
   end
 
   def check
     u = params[:student_no].slice(6..-1)
     checkv = Tyusen.find_by(student_no: u)
-    if checkv.nil?
-      flash[:alert] = "バレンタイン抽選が行われておりません"
-    #elsif heckv.check == "受け取り"
-    #  checkv.update(check: "受け取り済")
+    if User.find_by(student_no: u).nil?
+      redirect_to tyusen_checkout_path, notice: "ユーザーが見つかりません" and return
+    elsif checkv.nil?
+      redirect_to tyusen_checkout_path, notice: "抽選に未参加です" and return
+    elsif checkv.check == "受け取り"
+      redirect_to tyusen_checkout_path, notice: "受け取り済みです" and return
     else
       checkv.update(check: "受け取り")
     end
-    redirect_to tyusen_checkout_path(student_no: params[:student_no])
+    redirect_to tyusen_checkout_path(student_no: params[:student_no]) and return
   end
 
 end
