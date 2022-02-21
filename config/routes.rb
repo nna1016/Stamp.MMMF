@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
   get 'adminimanages/in'
   get 'adminimanages/ticket_qr'
-  get 'adminimanages/count'
+  get 'adminimanages/counter'
   get 'adminimanages/index'
   get 'adminimanages/auto'
   get 'adminimanages/success_in'
