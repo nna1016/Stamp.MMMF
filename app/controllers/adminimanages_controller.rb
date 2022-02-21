@@ -81,7 +81,7 @@ class AdminimanagesController < ApplicationController
     @adminimanages = Adminimanage.where(role: "1").where(in: nil)
   end
 
-  def count
+  def counter
     @htin = Adminimanage.where.not(in: nil)
     @hin = Adminimanage.where.not(in: nil).where(out: nil)
   end
