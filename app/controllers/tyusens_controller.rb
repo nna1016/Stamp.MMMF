@@ -48,7 +48,6 @@ class TyusensController < ApplicationController
         flash[:alert] = "既に抽選に参加済みです"
         redirect_to  request.referer and return
       end
-      Prize.where(kind: "ひなまつり").sum(:qty).times do
       user_stamp = GetStamp.where(student_no: qr.slice(6..-1)).count
       if user_stamp <= 2
         if Prize.where(kind: "ひなまつり", category: "参加賞").sum(:qty) <= 0
@@ -59,15 +58,14 @@ class TyusensController < ApplicationController
           prize = Prize.find_by(kind: "ひなまつり", prize: "かまトゥグッズ")
           prize.update(prize: "かまトゥグッズ", kind: "ひなまつり", qty: prize.qty - 1, category: prize.category)
         end
-        elsif user_stamp <= 4
-          if Prize.where.not(kind: "ひなまつり", category: "豪華").sum(:qty) <= 0
-            redirect_to  request.referer, alert: "中間・かまトゥグッズが無くなりました" and return
-          else
-            prize_random_middle(user.student_no)
-          end
+      elsif user_stamp <= 4
+        if Prize.where.not(kind: "ひなまつり", category: "豪華").sum(:qty) <= 0
+          redirect_to  request.referer, alert: "中間・かまトゥグッズが無くなりました" and return
         else
-          prize_random_all(user.student_no)
+          prize_random_middle(user.student_no)
         end
+      else
+        prize_random_all(user.student_no)
       end
     end
   end
@@ -82,7 +80,6 @@ class TyusensController < ApplicationController
     result = prize_list[rand(0..Prize.where(kind: "ひなまつり").sum(:qty)-1)]
     prize = Prize.find_by(kind: "ひなまつり", prize: result)
     session[:prize] = prize
-    p [result, prize]
     Tyusen.create({student_no: student_no, kind: "ひなまつり", prize: result})
     prize.update(prize: prize.prize, kind: "ひなまつり", qty: prize.qty - 1, category: prize.category)
   end
@@ -96,7 +93,6 @@ class TyusensController < ApplicationController
     end
     result = prize_list[rand(0..Prize.where(kind: "ひなまつり").where.not(category: "豪華").sum(:qty)-1)]
     prize = Prize.find_by(kind: "ひなまつり", prize: result)
-    p [result, prize]
     session[:prize] = prize
     Tyusen.create(student_no: student_no, kind: "ひなまつり", prize: result)
     prize.update(prize: prize.prize, kind: "ひなまつり", qty: prize.qty - 1, category: prize.category)
