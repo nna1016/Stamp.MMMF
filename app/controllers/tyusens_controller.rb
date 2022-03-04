@@ -103,7 +103,7 @@ class TyusensController < ApplicationController
   end
 
   def checkout
-    @checkv = Tyusen.find_by(student_no: params[:student_no].slice(6..-1)) if !params[:student_no].nil?
+    @checkv = Tyusen.find_by(student_no: params[:student_no].slice(6..-1),kind: "ひなまつり") if !params[:student_no].nil?
   end
 
   def check
