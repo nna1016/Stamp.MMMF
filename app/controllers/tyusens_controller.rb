@@ -116,7 +116,13 @@ class TyusensController < ApplicationController
     elsif checkv.check == "受け取り"
       redirect_to tyusen_checkout_path, notice: "受け取り済みです" and return
     else
-      checkv.update(check: "受け取り")
+      if checkv.check.nil?
+        flash[:alert] = "景品を渡してください"
+        checkv.update(check: "景品を渡してください")
+      else 
+        flash[:alert] = "景品を受け取り済みです"
+        checkv.update(check: "受け取り済み")
+      end
     end
     redirect_to tyusen_checkout_path(student_no: params[:student_no]) and return
   end
