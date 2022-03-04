@@ -108,7 +108,7 @@ class TyusensController < ApplicationController
 
   def check
     u = params[:student_no].slice(6..-1)
-    checkv = Tyusen.find_by(student_no: u)
+    checkv = Tyusen.find_by(student_no: u,kind: "ひなまつり")
     if User.find_by(student_no: u).nil?
       redirect_to tyusen_checkout_path, notice: "ユーザーが見つかりません" and return
     elsif checkv.nil?
