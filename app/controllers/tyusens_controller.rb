@@ -49,7 +49,7 @@ class TyusensController < ApplicationController
         redirect_to  request.referer and return
       end
       user_stamp = GetStamp.where(student_no: qr.slice(6..-1)).count
-      if user_stamp <= 2
+      if user_stamp == 1
         if Prize.where(kind: "ひなまつり", category: "参加賞").sum(:qty) <= 0
           redirect_to  request.referer, alert: "かまトゥグッズが無くなりました" and return
         else
@@ -58,7 +58,7 @@ class TyusensController < ApplicationController
           prize = Prize.find_by(kind: "ひなまつり", prize: "かまトゥグッズ")
           prize.update(prize: "かまトゥグッズ", kind: "ひなまつり", qty: prize.qty - 1, category: prize.category)
         end
-      elsif user_stamp <= 4
+      elsif user_stamp <= 3
         if Prize.where.not(kind: "ひなまつり", category: "豪華").sum(:qty) <= 0
           redirect_to  request.referer, alert: "中間・かまトゥグッズが無くなりました" and return
         else
