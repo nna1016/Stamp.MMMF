@@ -1,3 +1,94 @@
+#nav-open-button {
+    width: auto !important;
+    background-color: gray !important;
+    padding: 0.5% 1% 0.5% 1% !important;
+}
+#nav-open-button:hover {
+    background-color: #ebebeb !important;
+    transition: 0.2s;
+}
+#navbar {
+    text-align: center;
+    font-size: large;
+}
+#nav-button {
+    background-color: gray;
+    transition: 0.2s;
+    border: none;
+}
+
+
+#nav-button:hover {
+    background-color: rgb(53, 53, 53);
+    transition: 0.2s;
+}
+
+
+.nav-DashBoard-Menu{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 2px;
+    text-align:left;
+    margin: 5% 5%;
+    font-family: 'Sawarabi Gothic', sans-serif;	
+    font-weight: bold;
+}
+
+.nav-DashBoard-item:hover {
+    color: black;
+    background-color: #bbbaba;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+
+.nav-DashBoard-item {
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display:block;
+    font-size: large;
+    border-bottom: 1px solid black;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+
+.nav-DashBoard-Logout{
+    color: black;
+    background-color: #FF291D;
+    width: 90%;
+    height: 3em;
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: flex;
+    margin: auto;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, .2);
+}
+
+.nav-DashBoard-Logout a{
+    padding-top: 10px;
+    color: black;
+    text-decoration: none;
+    font-size: large;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+.nav-DashBoard-Logout:hover {
+    color: black;
+    background-color: #FF574D;
+    transition: 0.2s;
+}
+.offcanvas-header, .offcanvas-body {
+    background-color: #ebebeb;
+}
+.text-reset {
+    transition: 0.2s;
 .header {
     width: 100%;
     position: fixed;
