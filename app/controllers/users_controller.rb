@@ -1,20 +1,17 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-  before_action -> {access_control(3)}, :access_log
+  before_action -> {access_control(5)}
     # GET /problems or /problems.json
     def index
       @act_users = User.where.not(role_flag: 1)
-      @ok_users = User.where(role_flag: 1).where.not(confirmed_at: nil).order(point: "DESC")
+      @ok_users = User.where(role_flag: 1).where.not(confirmed_at: nil).order(id: "DESC")
       @not_users = User.where(confirmed_at: nil)
     end
   
     # GET /problems/1 or /problems/1.json
     def show
-      @quest = Problem.all
-      @point_log = AnsweredUser.where(student_no: User.find(params[:id]).student_no)
-      @friend_log = Friend.where(student_no: User.find(params[:id]).student_no)
-      @qr_log = Distribution.where(student_no: User.find(params[:id]).student_no)
-      if @user.confirmed_at == nil
+      @get_logs = GetStamp.all.where(student_no: User.find(params[:id]).student_no)
+      if @user.confirmed_at.nil?
         @confirme = "認証待ち"
       else
         @confirme = "認証済み"

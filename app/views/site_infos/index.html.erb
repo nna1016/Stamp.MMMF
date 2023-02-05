@@ -1,5 +1,5 @@
-<h3>アクセス管理</h3>
-<p style="text-align:center;">合計：<%= @site_cnt %>アクセス</p>
+<h3 class="scaf_section">アクセス管理</h3>
+<p style="text-align:center;">合計：<%= @ip_cnt %>人、<%= @site_cnt %>pv</p>
 <div class="scaf_table">
 <table>
   <thead>
@@ -17,12 +17,7 @@
         <td><%= site_info.student_no %></td>
         <td><%= site_info.ip_add %></td>
         <td><%= site_info.path %></td>
-        <td><%= site_info.created_at.strftime("%Y年 %m月 %d日 %H時%M分%S秒") %></td>
-        <!--
-        <td><%= link_to 'Show', site_info %></td>
-        <td><%= link_to 'Edit', edit_site_info_path(site_info) %></td>
-        <td><%= link_to 'Destroy', site_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        -->
+        <td><%= site_info.created_at.strftime("%Y年%m月%d日%H時%M分%S秒") %></td>
       </tr>
     <% end %>
   </tbody>

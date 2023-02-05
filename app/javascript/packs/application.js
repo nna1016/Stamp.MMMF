@@ -14,3 +14,8 @@ ActiveStorage.start()
 
 require("bootstrap");
 import "../stylesheets/application";
+require("bootstrap/dist/js/bootstrap")
+require("jquery")
+require("./headerNav.js")
+require("./profile.js")
+require("./date.js")
