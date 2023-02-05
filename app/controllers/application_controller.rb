@@ -1,7 +1,25 @@
 class ApplicationController < ActionController::Base
-    before_action :authenticate_user!, except: [:info,:prizelist, :mmmf_terms, :support, :tyusen]
+    before_action :authenticate_user!, except: [:info,:prizelist, :mmmf_terms, :support, :tyusen, :contact, :admin_invite]
     before_action :configure_permitted_parameters, if: :devise_controller?
-
+    before_action :access_log
+    
+    unless Rails.env.development?
+      rescue_from Exception, with: :render_500
+      rescue_from ActiveRecord::RecordNotFound, with: :render_404
+      rescue_from ActionController::RoutingError, with: :render_404
+    end
+   
+    def routing_error
+      raise ActionController::RoutingError, params[:path]
+    end
+   
+    def render_404
+      render 'errors/404', status: :not_found
+    end
+    
+    def render_500
+      render 'errors/500', status: :internal_server_error
+    end
 
     protected
     def configure_permitted_parameters
@@ -10,22 +28,17 @@ class ApplicationController < ActionController::Base
     end
 
     def access_control(role)
-      if User.find(current_user.id).role_flag.to_i < role
-        render file: "#{Rails.root}/public/404.html", layout: false, status: 404
+      if current_user.role_flag == "1"
+        render 'errors/404', status: :not_found
+      elsif User.find(current_user.id).role_flag.to_i < role
+        flash[:alert] = "権限不足です"
+        redirect_to setting_path and return 
       end
     end
 
     def release_befor
       if User.find(current_user.id).role_flag.to_i == 1 and Time.now <= Time.local(2021, 12, 20, 0, 0, 0, 0)
         redirect_to "/info" and return
-      end
-    end
-
-    def point_stop
-      if User.find(current_user.id).role_flag.to_i == 1 and Time.now >= Time.local(2021, 12, 23, 0, 0, 0, 0)
-        return true
-      else
-        return false
       end
     end
 

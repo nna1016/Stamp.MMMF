@@ -1,10 +1,15 @@
 class HomesController < ApplicationController
-  before_action -> {access_control(2)}, except: [:index, :info, :tyusen]
-  before_action :access_log
+  before_action -> {access_control(2)}, except: [:index, :info]
   
   def index
-    @all_ranks = User.where(role_flag: 1).where.not(confirmed_at: nil).order(point: "DESC") ## ポイントの降順
-    @prize = Prize.find_by(student_no: current_user.student_no)
+    if GetStamp.find_by(student_no: current_user.student_no, stamp_id: "act").nil?
+      GetStamp.create({student_no: current_user.student_no, number: 0, stamp_id: "act"})
+      flash[:notice] = '登録ボーナスのスタンプGET！'
+    end
+    @get_stamp = GetStamp.where(student_no: current_user.student_no)
+    @stamp = Stamp.all
+    @get_cnt = GetStamp.where(student_no: current_user.student_no).count
+    @qr = format("%06d#{current_user.student_no}", current_user.id.to_i * 16)
   end
   
   def setting

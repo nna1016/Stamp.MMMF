@@ -9,6 +9,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # QRコード
 gem 'rqrcode'
+gem 'rqrcode_png'
 gem 'chunky_png'
 # will_paginate
 gem 'will_paginate'
@@ -90,5 +91,8 @@ gem 'mini_magick'
 gem 'dotenv-rails'
 
 
-# 'AWS - JSエラー回避'
-# gem 'mini_racer',       '~> 0.3.1'
+# 'AWS? - JSエラー回避'
+#gem 'mini_racer',       '~> 0.3.1'
+# csv取り込み
+gem 'roo'
+

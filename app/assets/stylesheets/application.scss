@@ -21,7 +21,7 @@
 
 * {
     margin: 0px;
-    padding: 0px;
+    // padding: 0px;
     text-decoration: none;
 }
 
@@ -38,15 +38,8 @@
 .alert-alert {
   @extend .alert-danger;
 }
-* {
-    margin: 0px;
-    padding: 0px;
-    text-decoration: none;
-}
-
 
 body{
-    padding-bottom: 5vh;
     background-color: #ebebeb;
     position: relative;
     box-sizing: border-box;
@@ -139,8 +132,8 @@ body{
 
 // PrizeList
 .snow {
-    color: snow; /*雪の色*/
-    font-size: 18px; /*雪の大きさ*/
+    color: black; /*雪の色*/
+    font-size: 2rem; /*雪の大きさ*/
     position: fixed;
     top: -5%; /*初期位置*/
     text-shadow:
@@ -155,7 +148,7 @@ body{
     78vw  -220px 4px,
     86vw  -320px 9px,
     94vw  -170px 7px;
-    animation: anim 3.5s linear infinite;
+    animation: anim 5s linear infinite;
   }
   
   @keyframes anim {
@@ -289,7 +282,9 @@ body{
       font-weight: bold;
   }
 
-
+.push {
+    padding: 7rem 0;
+}
 header {
     background-color: #2D2D2D;
 }
@@ -310,17 +305,25 @@ header {
 
     #footer {
         text-align: center;
-        background-color: #2D2D2D;
-        color:white;
+        background-color: white;
         width: 100%;
         padding-top: 5%;
         box-sizing: border-box;
-        position: absolute;/* ←絶対位置 */
+        position: absolute;
+        bottom: 0;
         display: table;
+        box-shadow: 2px 0 6px 0  rgba(0, 0, 0, 0.16);
+    }
+    #footer ul {
+        list-style-position: inside;
+        padding-left: 0px;
     }
     #footer li {
         padding-bottom: 1%;
         list-style: none;
+        a {
+            color: black;
+        }
     }
 
     .join {
@@ -337,9 +340,8 @@ header {
 // 画面が大きい時
 @media screen and (min-width: 701px) {
     #footer {
-        background-color: #2D2D2D;
+        background-color: white;
         border-top: 0;
-        color:white;
         width: 100%;
         height: 50px;
         box-sizing: border-box;
@@ -347,9 +349,10 @@ header {
         bottom: 0;
         margin-top: 50px;
         display: table;
+        box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.16);
     }
     #footer ul {
-        padding-left: 20px;
+        padding-left: 30px;
         display: table-cell;
         vertical-align: middle;
     }
@@ -357,6 +360,9 @@ header {
         list-style: none;
         float: left;
         padding-right: 10px;
+        a {
+            color: black;
+        }
     }
     
     #footer p {
@@ -376,10 +382,10 @@ header {
     }
 }
 
-#footer a {
-    color: white;
-    text-decoration: none;
+#footer a:hover {
+    color: blue;
 }
+
 .footer-p > .footer-span {
     display: inline-block;
 }
@@ -411,6 +417,6 @@ header {
 	border: solid 0.5px #FFF;
 }
 
-.support {
+.contact {
     padding-bottom: 50vh;
 }
