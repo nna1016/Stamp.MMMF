@@ -13,13 +13,26 @@ class DeviseUsers::RegistrationsController < Devise::RegistrationsController
     mailRegex = /\A#{student_no.downcase}+@g.neec.ac.jp\z/
     email = params[:user][:email].downcase
     if !email.match?(mailRegex)
-      flash[:alert] = "メールアドレスは<br>学籍番号@g.neec.ac.jp<br>の形式で入力してください"
+      flash[:alert] = "メールアドレスもしくは学籍番号が正しくありません"
       redirect_to new_user_registration_path and return
     end
     params[:user][:student_no] = student_no
     params[:user][:email] = email
-    super
+    
+    @user = User.new(user_params)
+    if @user.save
+      flash[:notice] = "ユーザー認証メールを送信いたしました。認証が完了しましたらログインをお願いいたします。"
+      redirect_to new_user_session_path
+    else
+      flash[:alert] = "ユーザー登録に失敗しました。"
+      render action: :new and return
+    end
   end
+
+  private
+      def user_params
+        params.require(:user).permit(:student_no, :email, :name, :password, :password_confirmation)
+      end
 
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]

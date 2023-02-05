@@ -7,9 +7,9 @@
     width: 15rem;
     text-align: center;
     margin: auto;
-    border: 0.5px solid;
     border-radius: 20px;
     background-color: white;
+    margin-bottom: -1rem;
 }
 
 .tyusen-form-area {
@@ -51,7 +51,7 @@
     animation-name: fadeout;
     animation-duration: 1.5s;
     animation-fill-mode: forwards;
-    animation-delay: 5s;
+    animation-delay: 10s;
 }
 
 @keyframes fadeout {
@@ -64,23 +64,28 @@
 }
 
 .tyusen-explanation {
-    padding: 3rem 0 5rem 0;
-    max-width: 20rem;
     width: 80%;
     margin: auto;
 }
 
-.tyusen-explanation table caption{
+.tyusen-explanation th {
     padding: 0;
-    caption-side: top;
-    color: black;
-    text-align: center;
 }
 
-.tyusen-explanation table caption{
-    padding: 0 0 0.5rem 0;
-    caption-side: top;
-    color: black;
-    text-align: center;
-    font-size: 1.5rem;
+.tyusen-explanation table {
+    margin-bottom: 1rem;
+}
+
+.tyusen-explanation .tyusen-link {
+    text-align: right;
+}
+.check-prize-area {
+    width: 75%;
+    border: solid 1px;
+    border-radius: 5px;
+    background-color: #FFF;
+    margin: auto;
+    margin-top: 15px;
+    padding: 5px;
+    font-size: 2em;
 }
