@@ -66,6 +66,11 @@ class AdminimanagesController < ApplicationController
   def adminimanage_params
     params.permit(:user_id)
   end
+
+  def auto
+    @time = Time.now
+  end
+
   def index
     @adminimanages = Adminimanage.all
     @adminicnt = Adminimanage.count
