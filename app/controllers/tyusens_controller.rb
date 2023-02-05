@@ -27,10 +27,10 @@ class TyusensController < ApplicationController
       flash[:alert] = "ユーザーが見つかりませんでした"
       redirect_to  request.referer and return
     elsif request.referer.include?("valentine")
-      #if !Tyusen.find_by(student_no: user.student_no, kind: "バレンタイン").nil?
-      #  flash[:alert] = "既に抽選に参加済みです"
-      #  redirect_to  request.referer and return
-      #end
+      if !Tyusen.find_by(student_no: user.student_no, kind: "バレンタイン").nil?
+        flash[:alert] = "既に抽選に参加済みです"
+        redirect_to  request.referer and return
+      end
       prize_list = []
       Prize.where(kind: "バレンタイン").each do |prize|
         prize.qty.times do |time|
@@ -44,13 +44,12 @@ class TyusensController < ApplicationController
       prize.update(prize: prize.prize, kind: "バレンタイン", qty: prize.qty - 1, category: prize.category)  
     
     elsif request.referer.include?("hinamatsuri")
-      #if !Tyusen.find_by(student_no: user.student_no, kind: "ひなまつり").nil?
-      #  flash[:alert] = "既に抽選に参加済みです"
-      #  redirect_to  request.referer and return
-      #end
-      Prize.where(kind: "ひなまつり").sum(:qty).times do
+      if !Tyusen.find_by(student_no: user.student_no, kind: "ひなまつり").nil?
+        flash[:alert] = "既に抽選に参加済みです"
+        redirect_to  request.referer and return
+      end
       user_stamp = GetStamp.where(student_no: qr.slice(6..-1)).count
-      if user_stamp <= 2
+      if user_stamp == 1
         if Prize.where(kind: "ひなまつり", category: "参加賞").sum(:qty) <= 0
           redirect_to  request.referer, alert: "かまトゥグッズが無くなりました" and return
         else
@@ -59,15 +58,14 @@ class TyusensController < ApplicationController
           prize = Prize.find_by(kind: "ひなまつり", prize: "かまトゥグッズ")
           prize.update(prize: "かまトゥグッズ", kind: "ひなまつり", qty: prize.qty - 1, category: prize.category)
         end
-        elsif user_stamp <= 4
-          if Prize.where.not(kind: "ひなまつり", category: "豪華").sum(:qty) <= 0
-            redirect_to  request.referer, alert: "中間・かまトゥグッズが無くなりました" and return
-          else
-            prize_random_middle(user.student_no)
-          end
+      elsif user_stamp <= 3
+        if Prize.where.not(kind: "ひなまつり", category: "豪華").sum(:qty) <= 0
+          redirect_to  request.referer, alert: "中間・かまトゥグッズが無くなりました" and return
         else
-          prize_random_all(user.student_no)
+          prize_random_middle(user.student_no)
         end
+      else
+        prize_random_all(user.student_no)
       end
     end
   end
@@ -82,7 +80,6 @@ class TyusensController < ApplicationController
     result = prize_list[rand(0..Prize.where(kind: "ひなまつり").sum(:qty)-1)]
     prize = Prize.find_by(kind: "ひなまつり", prize: result)
     session[:prize] = prize
-    p [result, prize]
     Tyusen.create({student_no: student_no, kind: "ひなまつり", prize: result})
     prize.update(prize: prize.prize, kind: "ひなまつり", qty: prize.qty - 1, category: prize.category)
   end
@@ -96,7 +93,6 @@ class TyusensController < ApplicationController
     end
     result = prize_list[rand(0..Prize.where(kind: "ひなまつり").where.not(category: "豪華").sum(:qty)-1)]
     prize = Prize.find_by(kind: "ひなまつり", prize: result)
-    p [result, prize]
     session[:prize] = prize
     Tyusen.create(student_no: student_no, kind: "ひなまつり", prize: result)
     prize.update(prize: prize.prize, kind: "ひなまつり", qty: prize.qty - 1, category: prize.category)
@@ -107,22 +103,28 @@ class TyusensController < ApplicationController
   end
 
   def checkout
-
+    @checkv = Tyusen.find_by(student_no: params[:student_no].slice(6..-1),kind: "ひなまつり") if !params[:student_no].nil?
   end
 
   def check
-    checkv = Tyusen.where(student_no: params[:student_no]).where(kind: "バレンタイン")
-    if checkv.nil?
-      flash[:alert] = "バレンタイン抽選が行われておりません"
+    u = params[:student_no].slice(6..-1)
+    checkv = Tyusen.find_by(student_no: u,kind: "ひなまつり")
+    if User.find_by(student_no: u).nil?
+      redirect_to tyusen_checkout_path, notice: "ユーザーが見つかりません" and return
+    elsif checkv.nil?
+      redirect_to tyusen_checkout_path, notice: "抽選に未参加です" and return
+    elsif checkv.check == "受け取り"
+      redirect_to tyusen_checkout_path, notice: "受け取り済みです" and return
     else
-      checkv.update(check: "受け取り済み")
+      if checkv.check.nil?
+        flash[:alert] = "景品を渡してください"
+        checkv.update(check: "景品を渡してください")
+      else 
+        flash[:alert] = "景品を受け取り済みです"
+        checkv.update(check: "受け取り済み")
+      end
     end
-    checkh = Tyusen.where(student_no: params[:student_no]).where(kind: "ひなまつり")
-    if checkh.nil?
-      flash[:alert] = "ひなまつり抽選が行われておりません"
-    else
-      checkh.update(check: "受け取り済み")
-    end
+    redirect_to tyusen_checkout_path(student_no: params[:student_no]) and return
   end
 
 end

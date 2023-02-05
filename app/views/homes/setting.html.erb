@@ -25,6 +25,9 @@
       <div class="Select-botun-home">
         <%= link_to "ひなまつり抽選", tyusen_hinamatsuri_path %>
       </div>
+      <div class="Select-botun-home">
+        <%= link_to "景品受け取り", tyusen_checkout_path(student_no: "") %>
+      </div>
     </div>
 
     <div class="Dashboard-DoubleGroup">
@@ -48,6 +51,9 @@
       </div>
       <div class="Select-botun-home">
         <%= link_to "ticket発券", adminimanages_ticket_qr_path %>
+      </div>
+      <div class="Select-botun-home">
+        <%= link_to "入場者カウンター", adminimanages_counter_path %>
       </div>
       
     </div>
