@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_07_043441) do
+ActiveRecord::Schema.define(version: 2022_02_20_164213) do
 
   create_table "adminimanages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "user_id"
@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(version: 2022_02_07_043441) do
 
   create_table "prizes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "kind"
+    t.string "student_no"
     t.string "prize"
-    t.integer "qty"
-    t.string "category"
-    t.string "image"
+    t.string "reg_user"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_no"], name: "index_prizes_on_student_no", unique: true
   end
 
   create_table "site_infos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_043441) do
     t.string "student_no"
     t.string "kind"
     t.string "prize"
+    t.string "check"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

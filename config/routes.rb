@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   get 'adminimanages/error'
   get 'tyusen/hinamatsuri' => 'tyusens#hinamatsuri'
   get 'tyusen/valentine' => 'tyusens#valentine'
+  get 'tyusen/checkout' => 'tyusens#checkout'
   post 'tyusens/lottery'
+  post 'tyusens/check'
   resources :supports
   resources :stamps
   get 'site_infos' => 'site_infos#index'
