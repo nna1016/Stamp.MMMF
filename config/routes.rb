@@ -1,8 +1,27 @@
 Rails.application.routes.draw do
-
-  get 'tyusens/index'
-  get 'tyusens' => 'tyusens#new'
+  resources :staffs do
+    collection {post :import}
+  end
+  get 'admin_invite' => 'staffs#admin_invite'
+  post 'staffs/admin_regi'
+  get 'adminimanages/in'
+  get 'adminimanages/ticket_qr'
+  get 'adminimanages/counter'
+  get 'adminimanages/index'
+  get 'adminimanages/auto'
+  get 'adminimanages/success_in'
+  get 'adminimanages/success_out'
+  get 'adminimanages/form'
+  post 'adminimanages/form' => 'adminimanages#create'
+  get 'adminimanages/out'
+  post 'adminimanages/success'
+  get 'adminimanages/error'
+  get 'tyusen/hinamatsuri' => 'tyusens#hinamatsuri'
+  get 'tyusen/valentine' => 'tyusens#valentine'
+  get 'tyusen/checkout/:student_no' => 'tyusens#checkout'
+  get 'tyusen/checkout' => 'tyusens#checkout'
   post 'tyusens/lottery'
+  post 'tyusens/check'
   resources :supports
   resources :stamps
   get 'site_infos' => 'site_infos#index'

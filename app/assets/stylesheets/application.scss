@@ -40,7 +40,6 @@
 }
 
 body{
-    padding-bottom: 5vh;
     background-color: #ebebeb;
     position: relative;
     box-sizing: border-box;
@@ -283,7 +282,9 @@ body{
       font-weight: bold;
   }
 
-
+.push {
+    padding: 7rem 0;
+}
 header {
     background-color: #2D2D2D;
 }
@@ -308,7 +309,8 @@ header {
         width: 100%;
         padding-top: 5%;
         box-sizing: border-box;
-        position: absolute;/* ←絶対位置 */
+        position: absolute;
+        bottom: 0;
         display: table;
         box-shadow: 2px 0 6px 0  rgba(0, 0, 0, 0.16);
     }
@@ -417,8 +419,4 @@ header {
 
 .contact {
     padding-bottom: 50vh;
-}
-
-* {
-    font-family: "meiryo"
 }

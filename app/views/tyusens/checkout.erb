@@ -1,0 +1,20 @@
+<div class="tyusen-form-area">
+    <%= form_with(model: @tyusen, url: {controller: 'tyusens', action: 'check'}) do |f| %>
+        <p>ユーザーのQRをスキャンしてください。</p>
+        <%= f.text_field :student_no, required: true, autofocus: true, placeholder: "" %>
+    <% end %>
+</div>
+
+<% if !@checkv.blank? %>
+<div class="check-prize-area">
+<div class="check-prize-area-text">
+学籍番号：<%= @checkv.student_no %>
+</div>
+<div class="check-prize-area-text">
+当選景品：<%= @checkv.prize %>
+</div>
+<div class="check-prize-area-text">
+ステータス：<%= @checkv.check %>
+</div>
+</div>
+<% end %>

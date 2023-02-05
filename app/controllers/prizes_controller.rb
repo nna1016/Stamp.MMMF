@@ -1,6 +1,6 @@
 class PrizesController < ApplicationController
   before_action :set_prize, only: %i[ show edit update destroy ]
-  before_action -> {access_control(2)}, :access_log
+  before_action -> {access_control(2)}
 
 
   # GET /prizes or /prizes.json
@@ -67,6 +67,6 @@ class PrizesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def prize_params
-      params.require(:prize).permit(:prize, :qty, :category, :image)
+      params.require(:prize).permit(:kind, :prize, :qty, :category, :image)
     end
 end

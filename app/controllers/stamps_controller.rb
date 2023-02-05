@@ -1,5 +1,6 @@
 class StampsController < ApplicationController
   before_action :set_stamp, only: %i[ show edit update destroy ]
+  before_action -> {access_control(2)}
 
   # GET /stamps or /stamps.json
   def index
@@ -21,8 +22,13 @@ class StampsController < ApplicationController
 
   # POST /stamps or /stamps.json
   def create
-    @stamp = Stamp.new(stamp_params)
 
+    if !Stamp.find_by(number: stamp_params[:number]).nil?
+      redirect_to new_stamp_path, alert: "この位置のスタンプは登録済みです" and return
+    end
+
+    @stamp = Stamp.new(stamp_params)
+    
     respond_to do |format|
       if @stamp.save
         format.html { redirect_to @stamp, notice: "Stamp was successfully created." }
@@ -36,6 +42,10 @@ class StampsController < ApplicationController
 
   # PATCH/PUT /stamps/1 or /stamps/1.json
   def update
+    if !Stamp.find_by(number: stamp_params[:number]).nil?
+      redirect_to edit_stamp_path(@stamp), alert: "この位置のスタンプは登録済みです" and return
+    end
+
     respond_to do |format|
       if @stamp.update(stamp_params)
         format.html { redirect_to @stamp, notice: "Stamp was successfully updated." }
@@ -59,7 +69,7 @@ class StampsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_stamp
-      @stamp = Stamp.find(params[:id])
+      @stamp = Stamp.find(params[:id]) 
     end
 
     # Only allow a list of trusted parameters through.

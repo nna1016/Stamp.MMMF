@@ -11,7 +11,7 @@
 </div>
 <% end %>
 <div style="text-align: center">
-<%= link_to image_tag('/images/act.png', class: "banner"), "https://www.act-neec.org/about.html" %>
+<%= link_to video_tag("/images/recruit.mp4",playsinline: true,loop: true, autoplay: true, muted: true, target: "_brank", rel: "noopener noreferrer", class: "banner"), "https://www.act-neec.org/about.html", target: "_brank", rel: "noopener noreferrer" %>
 </div>
 
 <div class="profile-area">
@@ -42,4 +42,61 @@
 			</tr>
 		</tbody>
 	</table>
+</div>
+<div class="stamp-block">
+  <div class="stamp-item">
+    <div class="front">			
+		<div class="stamp-card">
+            <table Border Frame="Void">
+                <thead>
+                    <tr>
+                        <th colspan="2"><%= image_tag "/images/act_stamp.png", class: "stamp_img"%></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><%= image_tag stamp_list(1), class: "stamp_img"%></td>
+                        <td><%= image_tag stamp_list(2), class: "stamp_img" %></td>
+                    </tr>
+                    <tr>
+                        <td><%= image_tag stamp_list(3), class: "stamp_img" %></td>
+                        <td><%= image_tag stamp_list(4), class: "stamp_img" %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>		
+	</div>
+    <div class="back">
+
+            <div class="qrcode-area">
+                <%= image_tag qrcode_tag(@qr), class: "qrcode-img", size: 200 %>
+            </div>
+
+            <div class="tyusen-explanation">
+                <table>
+                    <thead>
+                        <th>獲得数</th>
+                        <th>当選景品</th>
+                    </thead>
+                    <tbody>
+                        <tr style="<%= "background-color:rgba(0,153,255,0.3);" if @get_cnt <= 1 %>">
+                            <td>1個</td>
+                            <td>参加賞</td>
+                        </tr>
+                        <tr style="<%= "background-color:rgba(0,153,255,0.3);" if @get_cnt == 2 or @get_cnt == 3 %>">
+                            <td>2~3個</td>
+                            <td>参加賞~中間</td>
+                        </tr>
+                        <tr style="<%= "background-color:rgba(0,153,255,0.3);" if @get_cnt == 4 or @get_cnt == 5 %>">
+                            <td>4~5個</td>
+                            <td>参加賞~豪華</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="tyusen-link">
+                    <%= link_to "抽選詳細",  "https://act-neec.org/wakatsuku2022/#tyusen-section", target: :_blank %>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

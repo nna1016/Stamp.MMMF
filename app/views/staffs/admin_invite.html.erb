@@ -1,0 +1,39 @@
+<div class="mflogo">
+  <%= image_tag '/images/logo.png', alt: "logo", size: "100x100" %>
+</div>
+<div class="form-frame">
+  <p style="text-align:center;margin-top:2vh;margin-bottom:-1vh;">※教職員登録用</p>
+<%= form_with(model: @staffs, url: {controller: 'staffs', action: 'admin_regi'}) do |f| %>
+
+    <div class="form-group">
+      <%= f.label :職員コード, class: "form-text" %>
+      <%= f.text_field :student_no, autofocus: true, required: true, autocomplete: 'student_no', maxlength: 15, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email, class: "form-text" %>
+      <%= f.email_field :email, required: true, autocomplete: 'email', placeholder: "@g.neec.ac.jpのみ有効", pattern: "[a-zA-Z0-9]+@g.neec.ac.jp", maxlength: 30, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "氏名", class: "form-text" %>
+      <em class="form-text text-muted">（変更不可）</em>
+      <%= f.text_field :name, required: true, placeholder: "カレッジ名_氏名", class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, class: "form-text" %>
+      <%= f.password_field :password, autocomplete: 'new-password', required: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group-btn">
+      <%= f.submit "アカウント登録", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+<div class="form-line"></div>
+  <div class="form-links">
+  <div class="form-group">
+    <%= link_to "ログイン", users_sign_out_path , class: 'btn btn-primary', style: "background-color:white !important;color:black !important;" %><br style='display:block;content:"";margin-bottom:10px;'>
+  </div>
+  </div>
+</div>

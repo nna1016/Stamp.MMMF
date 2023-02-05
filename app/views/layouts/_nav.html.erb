@@ -1,0 +1,38 @@
+<header>
+    <nav class="navbar navbar-light" style="padding:0;", data-turbolinks="false">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><%= image_tag "/images/logo.png", height: 40 %></a>
+
+            
+                <button class="btn btn-primary" type="button" id="nav-open-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><span class="navbar-toggler-icon"></span></button>
+                
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <button type="button" class="btn-close text-reset" id="nav-button" data-bs-dismiss="offcanvas" aria-label="Close" style="margin: 0 0 0 auto"></button>
+                    </div>
+                
+                    <div class="offcanvas-body">
+                        <div class="nav-DashBoard-Menu">
+                            <% if user_signed_in? then %>
+                                <% if User.find(current_user.id).role_flag.to_i >= 2 %>
+                                    <%= link_to '管理画面', setting_path, class: "nav-DashBoard-item" %>
+                                <% end %>
+                                <%= link_to "ホーム", :root, class: "nav-DashBoard-item" %>
+                                <%= link_to '企画詳細', info_path, class: "nav-DashBoard-item" %>
+                                </div>
+                                <div class="nav-DashBoard-Logout">
+                                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                                </div>
+                            <% else %>
+                                <%= link_to '企画詳細', info_path, class: "nav-DashBoard-item" %>
+                                <%= link_to "新規登録", new_user_registration_path, class: "nav-DashBoard-item" %>
+                                <%= link_to "ログイン", new_user_session_path, class: "nav-DashBoard-item" %>
+                            <% end %>
+                        </div>
+                        
+                    </div>
+                </div>
+
+        </div>
+    </nav>
+</header>

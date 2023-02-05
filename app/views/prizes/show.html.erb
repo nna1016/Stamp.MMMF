@@ -5,6 +5,9 @@
 </div>
 <table>
   <tr>
+    <th>種類</th><td><%= @prize.kind %></td>
+  </tr>
+  <tr>
     <th>景品名</th><td><%= @prize.prize %></td>
   </tr>
   <tr>
@@ -14,7 +17,7 @@
     <th>カテゴリ</th><td><%= @prize.category %></td>
   </tr>
   <tr>
-    <th>画像</th><td><%= image_tag @prize.image.url, size: 100 %></td>
+    <th>画像</th><td><%= image_tag check_image(@prize.image.url), size: 100 %></td>
   </tr>
 </table>
 </div>
