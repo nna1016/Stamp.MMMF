@@ -14,25 +14,35 @@
 <%= link_to video_tag("/images/recruit.mp4",playsinline: true,loop: true, autoplay: true, muted: true, target: "_brank", rel: "noopener noreferrer", class: "banner"), "https://www.act-neec.org/about.html", target: "_brank", rel: "noopener noreferrer" %>
 </div>
 
-<div class="cards-container">
-    <div class="card card-one">
-        <header>
-            <div class="avatar">
-            <img src="https://pbs.twimg.com/profile_images/1022063592441446400/_truTOvX_400x400.jpg" alt="かまとぅ" />
-            </div>
-        </header>
-
-        <h3><%= current_user.name %></h3>
-        <div class="desc">
-            <%= current_user.student_no %>
-        </div>
-
-        <footer>
-        <%= "獲得スタンプ数：#{@get_cnt}個"%>
-        </footer>
-    </div>
+<div class="profile-area">
+  <div class="profile">
+    <div class="front">			
+		<p><%= "獲得スタンプ数：#{@get_cnt}個"%></p>		
+	</div>
+    <div class="back">Yo, what up?</div>
+  </div>
 </div>
 
+<div id="stamp-card">
+	<table>
+		<thead>
+			<tr>
+				<th colspan="2"><%= image_tag "/images/wakatuku.png", class: "stamp_img"%></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= image_tag stamp_list(1), class: "stamp_img"%></td>
+				<td><%= image_tag stamp_list(2), class: "stamp_img" %></td>
+			</tr>
+			<tr>
+				<td><%= image_tag stamp_list(3), class: "stamp_img" %></td>
+				<td><%= image_tag stamp_list(4), class: "stamp_img" %></td>
+			</tr>
+			</tr>
+		</tbody>
+	</table>
+</div>
 <div class="stamp-block">
   <div class="stamp-item">
     <div class="front">			
@@ -90,4 +100,3 @@
         </div>
     </div>
 </div>
-
