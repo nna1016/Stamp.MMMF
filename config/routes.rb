@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :staffs do
     collection {post :import}
   end
+  get 'admin_invite' => 'staffs#admin_invite'
+  post 'staffs/admin_regi'
   get 'adminimanages/in'
   get 'adminimanages/ticket_qr'
   get 'adminimanages/counter'
