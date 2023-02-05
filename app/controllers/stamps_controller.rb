@@ -22,8 +22,13 @@ class StampsController < ApplicationController
 
   # POST /stamps or /stamps.json
   def create
-    @stamp = Stamp.new(stamp_params)
 
+    if !Stamp.find_by(number: stamp_params[:number]).nil?
+      redirect_to stamps_path, notice: "この位置のスタンプは登録済みです" and return
+    end
+
+    @stamp = Stamp.new(stamp_params)
+    
     respond_to do |format|
       if @stamp.save
         format.html { redirect_to @stamp, notice: "Stamp was successfully created." }
@@ -60,7 +65,7 @@ class StampsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_stamp
-      @stamp = Stamp.find(params[:id])
+      @stamp = Stamp.find(params[:id]) 
     end
 
     # Only allow a list of trusted parameters through.
